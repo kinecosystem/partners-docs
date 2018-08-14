@@ -1,0 +1,19 @@
+{
+	"docs": {
+		"Android": ["android/android"],
+		"iOS": ["ios/ios"],
+		"Server": [
+			"server/marketplace",
+			"server/jwt_service",
+			"server/payment_service",
+			"server/local_env"]
+	},
+	"faq": {
+		"FAQ": [
+			"faq/integration",
+			"faq/blockchain",
+			"faq/partners",
+			"faq/consumers"
+		]
+	}
+}
