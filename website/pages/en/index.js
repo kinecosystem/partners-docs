@@ -48,7 +48,7 @@ class Index extends React.Component {
 						className="bg_image" />
 				</video>
 				<div className="content">
-					<h1>The Kin SDK</h1>
+					<h1>The Kin Partners SDK</h1>
 					<h3>
 						A new digital world where<br/>
 						everyone is on the same team
