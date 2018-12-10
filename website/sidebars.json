@@ -1,12 +1,22 @@
 {
 	"docs": {
-		"Android": ["android/android"],
-		"iOS": ["ios/ios"],
+		"Guidelines": [
+			"guidelines/rollout",
+			"guidelines/sybil",
+			"guidelines/brand"
+		],
+		"Android": [
+			"android/android"
+		],
+		"iOS": [
+			"ios/ios"
+		],
 		"Server": [
 			"server/marketplace",
 			"server/jwt_service",
 			"server/payment_service",
-			"server/local_env"]
+			"server/local_env"
+		]
 	},
 	"faq": {
 		"FAQ": [
