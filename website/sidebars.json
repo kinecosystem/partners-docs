@@ -1,5 +1,10 @@
 {
 	"docs": {
+		"Guidelines": [
+      "guidelines/rollout",
+      "guidelines/sybil",
+      "guidelines/brand"
+    ],
 		"Android": ["android/android"],
 		"iOS": ["ios/ios"],
 		"Server": [
