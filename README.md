@@ -21,3 +21,16 @@ partners-docs/website > npm run build
 
 This will generate all the needed files (it's all static: html, images, etc).  
 You'll find the site distribution files under `website/build`.
+
+## Deploy using script
+```bash
+partners-docs/website > ./deploy.sh
+```
+
+In case you're getting:
+> fatal error: Unable to locate credentials
+
+Do this:
+```bash
+eval $(lp-aws-saml.py --print-eval)
+```
