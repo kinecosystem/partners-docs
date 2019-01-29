@@ -1,3 +1,7 @@
+---
+hide_title: true
+---
+
 ### Requesting Payment for a Custom Earn Offer ###
 
 A custom Earn offer allows your users to earn Kin as a reward for performing tasks you want to incentivize, such as setting a profile picture or rating your app. (Custom offers are created by your app, as opposed to offers created by other platforms such as the Kin Ecosystem Server.)

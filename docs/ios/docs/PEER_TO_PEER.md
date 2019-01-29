@@ -1,3 +1,7 @@
+---
+hide_title: true
+---
+
 ### Creating a Pay To User Offer ###
 
 A pay to user offer allows user generated offers with which other users can interact.

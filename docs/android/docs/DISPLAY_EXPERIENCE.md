@@ -1,3 +1,7 @@
+---
+hide_title: true
+---
+
 ### Displaying a specific experience in KinEcosystem ###
 
 #### Launch Kin Marketplace

@@ -1,3 +1,7 @@
+---
+hide_title: true
+---
+
 ### Creating a User’s Kin Account ###
 
 If your app presents Kin Spend and Earn offers to your users, then each user needs a Kin wallet and account in order to take advantage of those offers.

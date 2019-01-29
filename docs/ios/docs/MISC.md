@@ -1,3 +1,7 @@
+---
+hide_title: true
+---
+
 ### Finding out if another user has a kin account ###
 
 Before paying to a user, you might want to check if this user actually exists. to do that:

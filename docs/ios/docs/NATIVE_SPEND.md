@@ -1,3 +1,7 @@
+---
+hide_title: true
+---
+
 ### Using kin for a native spend experience
 A native spend is a mechanism allowing your users to buy virtual goods you define, using Kin on Kin Ecosystem API’s.</br>
 A native spend offer requires you prepare an encoded jwt object, describing the offer:
