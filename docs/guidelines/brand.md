@@ -1,8 +1,10 @@
 ---
 id: brand
 title: Brand
+hide_title: true
 ---
 
+# Brand
 [Kin Brand Guidelines PDF](/pdfs/BrandGuidelines.pdf)
 
 <embed src="https://drive.google.com/viewerng/

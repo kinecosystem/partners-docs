@@ -11,8 +11,8 @@
 const siteConfig = {
 	title: "Kin SDK for Partners",
 	tagline: "Documentation for the platform sdk",
-	url: 'https://your-docusaurus-test-site.com' /* your website url */,
-	baseUrl: '/' /* base url for your project */,
+	url: 'https://your-docusaurus-test-site.com', /* your website url */
+	baseUrl: '/', /* base url for your project */
 	// For github.io type URLs, you would set the url and baseUrl like:
 	//   url: 'https://facebook.github.io',
 	//   baseUrl: '/test-site/',
