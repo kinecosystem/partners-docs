@@ -17,7 +17,7 @@ If that user already has a Kin account, the function only accesses the existing 
 
 **JWT mode:**
 
-(See [Building the JWT Token](../README.md#generating-the-jwt-token) to learn how to build the JWT token.)
+(See [Building the JWT Token](android/README.md#generating-the-jwt-token) to learn how to build the JWT token.)
 
 ```java
     try {

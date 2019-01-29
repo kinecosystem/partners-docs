@@ -4,7 +4,7 @@ hide_title: true
 
 ### User Has a Kin Account ###
 
-This API will help you determine whether the recipient user has a Kin Account, so if user has account you can [pay Kin to this user](PEER_TO_PEER.md)
+This API will help you determine whether the recipient user has a Kin Account, so if user has account you can [pay Kin to this user](android/docs/PEER_TO_PEER.md)
 
 Call `Kin.hasAccount(…)`, while passing the userId (your app userId) and a callback function that will receive a boolean value.
 

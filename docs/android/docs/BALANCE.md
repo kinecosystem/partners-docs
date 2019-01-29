@@ -29,7 +29,7 @@ try {
 *To get the balance from the Kin Server (from the blockchain):*
 
 Call `Kin.getBalance(…)`, and implement the 2 response callback functions.
-(See [BlockchainException](COMMON_ERRORS.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](COMMON_ERRORS.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.)
+(See [BlockchainException](android/docs/COMMON_ERRORS.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](android/docs/COMMON_ERRORS.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.)
 
 ```java
 Kin.getBalance(new KinCallback<Balance>() {
