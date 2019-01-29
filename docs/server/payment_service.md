@@ -1,6 +1,7 @@
 ---
 id: payment_service
 title: Payment Service
+hide_title: true
 ---
 
 # Kin Ecosystem Payment Service

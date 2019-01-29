@@ -1,6 +1,7 @@
 ---
 id: ios
 title: iOS
+hide_title: true
 ---
 
 # Kin Ecosystem iOS SDK #

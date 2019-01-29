@@ -1,6 +1,7 @@
 ---
 id: jwt_service
 title: JWT Service
+hide_title: true
 ---
 
 # Kin ecosystem JWT service

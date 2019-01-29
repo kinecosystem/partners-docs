@@ -1,6 +1,7 @@
 ---
 id: partners
 title: Partners
+hide_title: true
 ---
 
 # Partners FAQ
