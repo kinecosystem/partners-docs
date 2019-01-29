@@ -1,3 +1,7 @@
+---
+hide_title: true
+---
+
 ### Getting an Account’s Balance ###
 
 A user’s balance is the number of Kin units in his or her account (can also contain a fraction). You may want to retrieve the balance in response to a user request or to check whether a user has enough funding to perform a Spend request. When you request a user’s balance, you receive a `Balance` object in response, which contains the amount as a `Decimal` object.

@@ -1,3 +1,7 @@
+---
+hide_title: true
+---
+
 ## Common Errors
 Most of the errors are derived from the `KinEcosystemException` exception, Exception has an error code - `getCode()` and a detailed message - `getMessage()`.
 

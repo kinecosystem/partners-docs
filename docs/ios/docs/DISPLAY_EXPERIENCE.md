@@ -1,3 +1,7 @@
+---
+hide_title: true
+---
+
 ### Launching the ecosystem experience
 The ecosystem experience can be launched at one of two entry points:
 1. Marketplace - where users can view earn and spend offers

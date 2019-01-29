@@ -1,3 +1,7 @@
+---
+hide_title: true
+---
+
 ### Creating a Custom Spend Offer ###
 
 A custom Spend offer allows your users to unlock unique spend opportunities that you define within your app. (Custom offers are created by your app, as opposed to [built-in offers displayed in the Kin Marketplace offer wall](#adding-a-custom-spend-offer-to-the-kin-marketplace-offer-wall).) Your app displays the offer, request user approval, and then [requests payment using the Kin purchase API](#requesting-purchase-payment-for-a-custom-spend-offer).

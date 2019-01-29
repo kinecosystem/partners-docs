@@ -1,3 +1,7 @@
+---
+hide_title: true
+---
+
 ### User Has a Kin Account ###
 
 This API will help you determine whether the recipient user has a Kin Account, so if user has account you can [pay Kin to this user](PEER_TO_PEER.md)

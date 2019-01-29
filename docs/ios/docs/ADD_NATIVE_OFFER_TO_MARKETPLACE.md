@@ -1,3 +1,7 @@
+---
+hide_title: true
+---
+
 ### Adding a Custom Offer to the Kin Marketplace Offer Wall ###
 
 The Kin Marketplace offer wall displays built-in offers, which are served by the Kin Ecosystem Server. Their purpose is to provide users with opportunities to earn initial Kin funding, which they can later spend on spend offers provided by hosting apps.
