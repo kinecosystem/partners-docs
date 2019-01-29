@@ -46,7 +46,7 @@ To access the Kin Ecosystem, you’ll need to obtain authentication credentials,
 
 * **JWT authentication** – a secure authentication method to be used in production. This method uses a JSON Web Token (JWT) signed by the Kin Server to authenticate the client request. You provide the Kin team with one or more public signature keys and its corresponding keyID, and you receive a JWT issuer identifier (ISS key). (See [https://jwt.io](https://jwt.io) to learn more about JWT tokens.)
 
-You supply your credentials when calling the SDK’s ```Kin.login(…)``` function for a specific user. See [Creating a User’s Kin Account](docs/CREATE_ACCOUNT.md) to learn more about login and logout.
+You supply your credentials when calling the SDK’s ```Kin.login(…)``` function for a specific user. See [Creating a User’s Kin Account](android/docs/CREATE_ACCOUNT.md) to learn more about login and logout.
 
 ## Generating the JWT Token ##
 
@@ -148,27 +148,27 @@ RS512_PRIVATE_KEY="YOUR_RS512_PRIVATE_KEY" // Used only for sample app, for prod
 
 The following sections show how to implement some primary APIs using the Kin Ecosystem SDK.
 
-* [Creating a User’s Kin Account](docs/CREATE_ACCOUNT.md)
+* [Creating a User’s Kin Account](android/docs/CREATE_ACCOUNT.md)
   
-* [Getting an Account’s Balance](docs/BALANCE.md)
+* [Getting an Account’s Balance](android/docs/BALANCE.md)
 
-* [Requesting Payment for a Custom Earn Offer](docs/NATIVE_EARN.md)
+* [Requesting Payment for a Custom Earn Offer](android/docs/NATIVE_EARN.md)
 
-* [Creating a Custom Spend Offer](docs/NATIVE_SPEND.md)
+* [Creating a Custom Spend Offer](android/docs/NATIVE_SPEND.md)
 
-* [Creating a Pay To User Offer](docs/PEER_TO_PEER.md)
+* [Creating a Pay To User Offer](android/docs/PEER_TO_PEER.md)
 
-* [Displaying the Kin Marketplace Offer Wall](docs/DISPLAY_EXPERIENCE.md)
+* [Displaying the Kin Marketplace Offer Wall](android/docs/DISPLAY_EXPERIENCE.md)
 
-* [Adding Native Offer to Marketplace Offer Wall](docs/ADD_NATIVE_OFFER_TO_MARKETPLACE.md)
+* [Adding Native Offer to Marketplace Offer Wall](android/docs/ADD_NATIVE_OFFER_TO_MARKETPLACE.md)
 
-* [Requesting an Order Confirmation](docs/ORDER_CONFIRMATION.md)
+* [Requesting an Order Confirmation](android/docs/ORDER_CONFIRMATION.md)
 
-* [Misc](docs/MISC.md)
+* [Misc](android/docs/MISC.md)
 
 
 ## Common Errors ##
-The Ecosystem APIs can response with few types of error, [learn more here](docs/COMMON_ERRORS.md)
+The Ecosystem APIs can response with few types of error, [learn more here](android/docs/COMMON_ERRORS.md)
 
 ## License ##
 

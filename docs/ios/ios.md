@@ -49,7 +49,7 @@ To access the Kin Ecosystem, you’ll need to obtain authentication credentials,
 
 * **JWT authentication** – a secure authentication method to be used in production. This method uses a JSON Web Token (JWT) signed by the Kin Server to authenticate the client request. You provide the Kin team with one or more public signature keys and its corresponding keyID, and you receive a JWT issuer identifier (ISS key). (See [https://jwt.io](https://jwt.io) to learn more about JWT tokens.)
 
-You supply your credentials when calling the SDK’s ```Kin.login(…)``` function for a specific user. See [Creating a User’s Kin Account](docs/CREATE_ACCOUNT.md) to learn more about login and logout.
+You supply your credentials when calling the SDK’s ```Kin.login(…)``` function for a specific user. See [Creating a User’s Kin Account](ios/docs/CREATE_ACCOUNT.md) to learn more about login and logout.
 
 ## Generating the JWT Token ##
 
@@ -103,23 +103,23 @@ This is the payload structure:
 
 The following sections show how to implement some primary APIs using the Kin Ecosystem SDK.
 
-* [Creating a User’s Kin Account](docs/CREATE_ACCOUNT.md)
+* [Creating a User’s Kin Account](ios/docs/CREATE_ACCOUNT.md)
   
-* [Getting an Account’s Balance](docs/BALANCE.md)
+* [Getting an Account’s Balance](ios/docs/BALANCE.md)
 
-* [Requesting Payment for a Custom Earn Offer](docs/NATIVE_EARN.md)
+* [Requesting Payment for a Custom Earn Offer](ios/docs/NATIVE_EARN.md)
 
-* [Creating a Custom Spend Offer](docs/NATIVE_SPEND.md)
+* [Creating a Custom Spend Offer](ios/docs/NATIVE_SPEND.md)
 
-* [Creating a Pay To User Offer](docs/PEER_TO_PEER.md)
+* [Creating a Pay To User Offer](ios/docs/PEER_TO_PEER.md)
 
-* [Displaying the Kin Marketplace](docs/DISPLAY_EXPERIENCE.md)
+* [Displaying the Kin Marketplace](ios/docs/DISPLAY_EXPERIENCE.md)
 
-* [Adding Native Offers to the Marketplace Offer Wall](docs/ADD_NATIVE_OFFER_TO_MARKETPLACE.md)
+* [Adding Native Offers to the Marketplace Offer Wall](ios/docs/ADD_NATIVE_OFFER_TO_MARKETPLACE.md)
 
-* [Requesting an Order Confirmation](docs/ORDER_CONFIRMATION.md)
+* [Requesting an Order Confirmation](ios/docs/ORDER_CONFIRMATION.md)
 
-* [Misc](docs/MISC.md)
+* [Misc](ios/docs/MISC.md)
 
 ## License ##
 
