@@ -17,7 +17,7 @@ You can immidietly call other functions after calling login. Any login or wallet
 
 **JWT mode:**
 
-(See [Building the JWT Token](../README.md#generating-the-jwt-token) to learn how to build the JWT token.)
+(See [Building the JWT Token](ios/README.md#generating-the-jwt-token) to learn how to build the JWT token.)
 
 ```swift
     try Kin.shared.login(jwt: encodedJWT) { error in
