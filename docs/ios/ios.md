@@ -3,356 +3,124 @@ id: ios
 title: iOS
 ---
 
-# kin-ecosystem-ios-sdk
+# Kin Ecosystem iOS SDK #
 
-## Intro
-The ecosystem "5 minute SDK" supports rich user experience and seamless blockchain integration. <br/>
-Once the ecosystem SDK is integrated within a digital service, users will be be able to interact with rich earn and spend marketplace experiences, and view their account balance and order history.<br/>
-A stellar wallet and account will be created behind the scenes for the user. <br/>
-The SDK also support purchase API to allow users to create spend transaction within the app - see the following section: [Using kin for native spend experience.](#using-kin-for-native-spend-experience)<br/>
-Next version of the SDK and API will also suport native earn and P2P transactions.<br/>
+## What is the Kin Ecosystem SDK? ##
 
+The Kin Ecosystem SDK allows you to quickly and easily integrate with the Kin platform. This enables you to provide your users with new opportunities to earn and spend the Kin digital currency from inside your app or from the Kin Marketplace offer wall. For each user, the SDK will create wallet and an account on Kin blockchain. By calling the appropriate SDK functions, your application can performs earn and spend transactions. Your users can also view their account balance and their transaction history.
 
 ## Installation
 The fastest way to get started with the sdk is with cocoapods (>= 1.4.0).
 ```
-pod 'KinEcosystem', '0.4.9'
+pod 'KinEcosystem', '0.6.3'
 ```
 > Notice for apps using swift 3.2: the pod installation will change your project's swift version target to 4.0</br>
 > This is because the sdk uses swift 4.0, and cocoapods force the pod's swift version on the project. For now, you can manually change your project's swift version in the build setting. A better solution will be available soon.
 
 ## Usage
 
-### Registration for Ecosystem backend service
-
-Digital service application needs to initiate the Ecosystem sdk, which interacts with the ecosystem backend service. <br/>
-<br/>
-The Ecosystem backend is required for
-1. Creating users accounts on the Stellar blockchain
-1. Funds these account with initial XLM balance.
-1. Serving KIN earn and spend offers for the SDK marketplace.
-1. Mange and store user's earn and spend order history.
-
-Therefore the ecosystem backend will block unauthorized requests.
-Digital services will have to authorised client request using one of the following methods:
-1. "whitelist" registration - used for quick first time integration or small internal testing.
-    1. Whitelist registration requires a unique appID and apiKey.
-    1. Please contact us to receive your unique appId and apiKey.
-1. "JWT" registration - A secure register method for production ready application,
-    1. "JWT" registration" use a Server side signed JWT token to authenticated client request.
-    1. You can learn more [here](https://jwt.io)
-    1. Please contact us to receive your JWT issuer identifier (iss key) and provide us with your public signature key and its corresponding 'keyid'
-
-## Environment
-Kin Ecosystem provides two working environments:
-1. PRODUCTION - Production ecosystem servers and the main private blockchain network.
-2. PLAYGROUND - A staging and testing environment running on test ecosystem servers and a private blockchain test network.<br>
-You must specify an Environment on `Kin.shared.start(...)` as you will see in the following [section](app-id-and-key).
-
-You should test the SDK with the PLAYGROUND enviorment using [PLAYGROUND test credentials](#playground-test-credentials).<br/>
-
-The PLAYGROUND enviorment SLA of is not guaranteed.<br/>
-Playground transaction are running on Kin PLAYGROUND blockchain.<br/>
-
-The PRODUCTION enviorment is runnig on main production blockchain and containing real earn/spend offers, therfore required specifc credtials per digital services, please contact us for more details.<br/>
-
-### JWT Registration specs
-1. Playground will support `ES256` and `RS512` signature algorithm.
-2. PRODUCTION will only support `ES256` signature algorithm.
-3. The header will follow this template
-    ```aidl
-    {
-        "alg": "RS512", // We will support ES256 signature algorithem
-        "typ": "JWT",
-        "kid": string" // identifier of the keypair that was used to sign the JWT. identifiers and public keys will be provided by signer authority. This enables using multiple private/public key pairs (a list of public keys and their ids need to be provided by signer authority to verifier in advanced)
-    }
-    ```
-
-3. Here is the registration payload template
-    ```aidl
-    {
-        // common/ standard fields
-        iat: number;  // issued at - seconds from epoc
-        iss: string; // issuer - please contact us to recive your issuer
-        exp: number; // expiration
-        sub: "register"
-
-        // application fields
-        user_id: string; // id of the user - or a deterministic unique id for the user (hash)
-    }
-    ```
-#### Playground test credentials
+> **Important note:** Apps using the sdk must include a NSPhotoLibraryUsageDescription key entry in the info.plist file. This is becuase the sdk may ask to use the photos library when restoring a backed up wallet. For example, you can use something like:</br>
+"_Photo library access is required for backup and restore of your kin wallet_"
+</br></br>
+If your app already includes such an entry, you do not need to change anything.
 
 
-    RS512_PRIVATE_KEY="MIICWwIBAAKBgQDdlatRjRjogo3WojgGHFHYLugdUWAY9iR3fy4arWNA1KoS8kVw33cJibXr8bvwUAUparCwlvdbH6dvEOfou0/gCFQsHUfQrSDv+MuSUMAe8jzKE4qW+jK+xQU9a03GUnKHkkle+Q0pX/g6jXZ7r1/xAK5Do2kQ+X5xK9cipRgEKwIDAQABAoGAD+onAtVye4ic7VR7V50DF9bOnwRwNXrARcDhq9LWNRrRGElESYYTQ6EbatXS3MCyjjX2eMhu/aF5YhXBwkppwxg+EOmXeh+MzL7Zh284OuPbkglAaGhV9bb6/5CpuGb1esyPbYW+Ty2PC0GSZfIXkXs76jXAu9TOBvD0ybc2YlkCQQDywg2R/7t3Q2OE2+yo382CLJdrlSLVROWKwb4tb2PjhY4XAwV8d1vy0RenxTB+K5Mu57uVSTHtrMK0GAtFr833AkEA6avx20OHo61Yela/4k5kQDtjEf1N0LfI+BcWZtxsS3jDM3i1Hp0KSu5rsCPb8acJo5RO26gGVrfAsDcIXKC+bQJAZZ2XIpsitLyPpuiMOvBbzPavd4gY6Z8KWrfYzJoI/Q9FuBo6rKwl4BFoToD7WIUS+hpkagwWiz+6zLoX1dbOZwJACmH5fSSjAkLRi54PKJ8TFUeOP15h9sQzydI8zJU+upvDEKZsZc/UhT/SySDOxQ4G/523Y0sz/OZtSWcol/UMgQJALesy++GdvoIDLfJX5GBQpuFgFenRiRDabxrE9MNUZ2aPFaFp+DyAe+b4nDwuJaW2LURbr8AEZga7oQj0uYxcYw\=\="
-    APP_ID="test"
-    API_KEY="A2XEJTdN8hGiuUvg9VSHZ"
+## Beta and Production Environments ##
 
-### Onboarding
+The Kin Ecosystem provides two working environments:
 
-Once your app can provide a unique user id, call (depending on your onboarding method):
+- **Beta** – a staging and testing environment using test servers and a blockchain test network.
+- **Production** – uses production servers and the main blockchain network.
 
-#### app id and key:
-```swift
-Kin.shared.start(userId: "myUserId", apiKey: "myAppKey", appId: "myAppId", environment: .playground)
+Use the Beta environment to develop, integrate and test your app. Transition to the Production environment when you’re ready to go live with your Kin-integrated app.
+
+>**NOTES:**
+>* When working with the Beta environment, you can only register up to 1000 users. An attempt to register additional users will result in an error.
+
+## Initialize The SDK ##
+Kin Ecosystem SDK must be initialized before any interaction with the SDK, in order to do that you should call ```Kin.shared.start(environment: Environment)``` first.
+
+
+   >**NOTE** `start` method does not perform any network calls and it's a synchronous method. If anything goes wrong during start, an error will be thrown.
+
+## Obtaining Authentication Credentials ##
+
+To access the Kin Ecosystem, you’ll need to obtain authentication credentials, which you then use to register your users.
+
+* **JWT authentication** – a secure authentication method to be used in production. This method uses a JSON Web Token (JWT) signed by the Kin Server to authenticate the client request. You provide the Kin team with one or more public signature keys and its corresponding keyID, and you receive a JWT issuer identifier (ISS key). (See [https://jwt.io](https://jwt.io) to learn more about JWT tokens.)
+
+You supply your credentials when calling the SDK’s ```Kin.login(…)``` function for a specific user. See [Creating a User’s Kin Account](docs/CREATE_ACCOUNT.md) to learn more about login and logout.
+
+## Generating the JWT Token ##
+
+A JWT token is a string that is composed of 3 parts:
+
+* **Header** – a JSON structure encoded in Base64Url
+* **Payload** – a JSON structure encoded in Base64Url
+* **Signature** – constructed with this formula:
+
+    ```ES256(base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)```
+
+    -- where the secret value is the private key of your agreed-on public/private key pair.
+
+The 3 parts are then concatenated, with the ‘.’ character between each 2 consecutive parts, as follows:
+
+```<header> + “.” + <payload> + “.” + <signature>```
+
+See https://jwt.io to learn more about how to build a JWT token, and to find libraries that you can use to do this.
+
+This is the header structure:
+
 ```
-#### jwt:
-```swift
-Kin.shared.start(userId: "myUserId", jwt: encodedJWT, environment: .playground)
-```
->To view a full example of logging in with a [JWT](http://jwt.io) or an app key and id, check out the [sample app](https://github.com/kinecosystem/kin-ecosystem-ios-sample-app)
-
-This will create the stack needed for running the ecosystem. All account creation and activation is handled for you by the sdk.</br>
-Because blockchain onboarding might take a few seconds, It is strongly recommended to call this function as soon as you can provide a user id.
-
-### Launching the marketplace experience
-To launch the marketplace experience, with earn and spend opportunities, from a viewController, simply call:
-
-```swift
-Kin.shared.launchMarketplace(from: self)
-```
-### Getting your public address
-Once kin is onboarded, you can view the stellar wallet address using:
-```swift
-Kin.shared.publicAddress
-```
-> note: this variable will return nil if called before kin is onboarded
-
-### Getting your balance
-
-Balance is represented by a `Balance` struct:
-```swift
-public struct Balance: Codable, Equatable {
-    public var amount: Decimal
+{
+    "alg": "ES256",
+    "typ": "JWT",
+    "kid": string" // ID of the keypair that was used to sign the JWT.
+    // IDs and public keys will be provided by the signing authority.
+    // This enables using multiple private/public key pairs.
+    // (The signing authority must provide the verifier with a list of public
+    // keys and their IDs in advance.)
 }
 ```
 
-You can get your current balance using one of three ways:
+This is the payload structure:
 
-#### Synchronously get the last known balance for the current account:
+```
+{
+    // standard fields
+    iat: number;  // the time this token was issued, in seconds from Epoch
+    iss: string;  // issuer (Kin will provide this value)
+    exp: number;  // the time until this token expires, in seconds from Epoch
+    sub: "register"
 
-```swift
-if let amount = Kin.shared.lastKnownBalance?.amount {
-    print("your balance is \(amount) KIN")
-} else {
-  // Kin is not started or an account wasn't created yet.
+    // application fields
+    user_id: string; // A unique ID of the end user (must only be unique among your app’s users; not globally unique)
+    device_id: string; // A unique ID of the user's device
 }
 ```
 
-#### Asynchronous call to the blockchain network:
-```swift
-Kin.shared.balance { balance, error in
-    guard let amount = balance?.amount else {
-        if let error = error {
-            print("balance fetch error: \(error)")
-        }
-        return
-    }
-    print("your balance is \(amount) KIN")
-}
-```
+## Primary APIs ##
 
-#### Observing balance with a blockchain network observer:
+The following sections show how to implement some primary APIs using the Kin Ecosystem SDK.
 
-```swift
-var balanceObserverId: String? = nil
-do {
-    balanceObserverId = try Kin.shared.addBalanceObserver { balance in
-        print("balance: \(balance.amount)")
-    }
-} catch {
-    print("Error setting balance observer: \(error)")
-}
+* [Creating a User’s Kin Account](docs/CREATE_ACCOUNT.md)
+  
+* [Getting an Account’s Balance](docs/BALANCE.md)
 
-// when you're done listening to balance changes, remove the observer:
+* [Requesting Payment for a Custom Earn Offer](docs/NATIVE_EARN.md)
 
-if let observerId = balanceObserverId {
-    Kin.shared.removeBalanceObserver(observerId)
-}
-```
+* [Creating a Custom Spend Offer](docs/NATIVE_SPEND.md)
 
-### Using kin for native spend experience
-A native spend is a mechanism allowing your users to buy virtual goods you define, using Kin on Kin Ecosystem API’s.</br>
-A native spend offer requires you prepare an encoded jwt object, describing the offer:
+* [Creating a Pay To User Offer](docs/PEER_TO_PEER.md)
 
-1. We will support `ES256` signature algorithm later on, right now you can use `RS512`.
-2. Header will follow this template
-```aidl
-    {
-        "alg": "RS512", // We will support ES256 signature algorithem
-        "typ": "JWT",
-        "kid": string" // identifier of the keypair that was used to sign the JWT. identifiers and public keys will be provided by signer authority. This enables using multiple private/public key pairs (a list of public keys and their ids need to be provided by signer authority to verifier in advanced)
-    }
-```
-3. SpendOffer payload template
-```aidl
-    {
-        // common/ standard fields
-        iat: number;  // issued at - seconds from epoc
-        iss: string; // issuer - please contact us to recive your issuer
-        exp: number; // expiration
-        sub: "spend"
+* [Displaying the Kin Marketplace](docs/DISPLAY_EXPERIENCE.md)
 
-       // application fields
-       offer: {
-               id: string; // offer id is decided by you (internal)
-               amount: number; // amount of kin for this offer - price
-       }
+* [Adding Native Offers to the Marketplace Offer Wall](docs/ADD_NATIVE_OFFER_TO_MARKETPLACE.md)
 
-       sender: {
-              user_id: string; // optional: user_id who will perform the order
-              title: string; // order title - appears in order history
-              description: string; // order description - appears in order history
-       }
-    }
-```
+* [Requesting an Order Confirmation](docs/ORDER_CONFIRMATION.md)
 
-And to actually perform the purchase, call:
-```swift
-Kin.shared.purchase(offerJWT: encodedNativeOffer) { jwtConfirmation, error in
-  if let confirm = jwtConfirmation {
-    // success
-  } else if let e = error {
-    // error
-  }
-}
-```
-> A native spend example is also provided in the [sample app](https://github.com/kinecosystem/kin-ecosystem-ios-sample-app)
+* [Misc](docs/MISC.md)
 
-### Adding a Custom Spend Offer to the Kin Marketplace Offer Wall ###
+## License ##
 
-The Kin Marketplace offer wall displays built-in offers, which are served by the Kin Ecosystem Server. Their purpose is to provide users with opportunities to earn initial Kin funding, which they can later spend on spend offers provided by hosting apps.
-
-You can also choose to display a banner for your custom offer in the Kin Marketplace offer wall. This serves as additional "real estate" in which to let the user know about custom offers within your app. When the user clicks on your custom Spend offer in the Kin Marketplace, your app is notified, and then it continues to manage the offer activity in its own UX flow.
-
->**NOTE:** You will need to actively launch the Kin Marketplace offer wall so your user can see the offers you added to it.
-
-*To add a custom Spend offer to the Kin Marketplace:*
-
-1. Create a ```NativeSpendOffer``` struct as in the example below.
-
-  ```swift
-let offer = NativeOffer(id: "offer id", // OfferId must be a UUID
-                        title: "offer title",
-                        description: "offer description",
-                        amount: 1000,
-                        image: "an image URL string",
-                        isModal: true)
-```
-> Note: setting a native offer's `isModal` property to true means that when a user taps on the native offer, the marketplace will first close (dismiss) before invoking the native offer's handler, if set. The default value is false.
-
-2.	Set the  `nativeOfferHandler` closure on Kin.shared to receive a callback when the native offer has been tapped.</br>
-The callback is of the form `public var nativeOfferHandler: ((NativeOffer) -> ())?`
-
-  ```swift
-// example from the sample app:
-Kin.shared.nativeOfferHandler = { offer in
-            DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Native Offer", message: "You tapped a native offer and the handler was invoked.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: { [weak alert] action in
-                    alert?.dismiss(animated: true, completion: nil)
-                }))
-
-                let presentor = self.presentedViewController ?? self
-                presentor.present(alert, animated: true, completion: nil)
-            }
-        }
-```
-
-3.	Add the native offer you created in the following way:
-
-  >Note: Each new offer is added as the first offer in Spend Offers list the Marketplace displays.
-
-  ```swift
-  do {
-      try Kin.shared.add(nativeOffer: offer)
-  } catch {
-      print("failed to add native offer, error: \(error)")
-  }
-  ```
-
-### Removing a Custom Spend Offer from Kin Marketplace ###
-
-*To remove a custom Spend offer from the Kin Marketplace:*
-
-```swift
-do {
-    try Kin.shared.remove(nativeOfferId: offer.id)
-} catch {
-    print("Failed to remove offer, error: \(error)")
-}
-```
-
-### Requesting Payment for a Custom Earn Offer ###
-
-A custom Earn offer allows your users to earn Kin as a reward for performing tasks you want to incentivize, such as setting a profile picture or rating your app. (Custom offers are created by your app, as opposed to offers created by other platforms such as the Kin Ecosystem Server.)
-
->**NOTE:** For now, custom Earn offers must be displayed and managed by your app, and cannot be added to the Kin Marketplace (unlike custom Spend offers).
-
-Once the user has completed the task associated with the Earn offer, you request Kin payment for the user.
-
-*To request payment for a user who has completed an Earn offer:*
-
-1.	Create a JWT that represents an Earn offer signed by you, using the header and payload templates below.
-
-    **JWT header:**
-    ```
-    {
-        "alg": "ES256", // Hash function
-        "typ": "JWT",
-        "kid": string" // identifier of the keypair that was used to sign the JWT. identifiers and public keys will be provided by signer authority. This enables using multiple private/public key pairs (a list of public keys and their ids need to be provided by signer authority to verifier in advanced)
-    }
-    ```
-
-    **JWT payload:**
-    ```
-    {
-        // common/ standard fields
-        iat: number; // issued at - seconds from Epoch
-        iss: string; // issuer
-        exp: number; // expiration
-        sub: "earn"
-
-       // application fields
-       offer: {
-               id: string; // offer id is decided by you (internal)
-               amount: number; // amount of kin for this offer - price
-       }
-       recipient: {
-              user_id: string; // user_id who will perform the order
-              title: string; // order title - appears in order history
-              description: string; // order desc. (in order history)
-       }
-    }
-    ```
-2.	Call ```Kin.shared.requestPayment``` (see code example below). The Ecosystem Server credits the user account (assuming the app’s account has sufficient funds).
-
-    >**NOTES:**
-    >* The following snippet is taken from the SDK Sample App, in which the JWT is created and signed by the client side for presentation purposes only. Do not use this method in production! In production, the JWT must be signed by the server, with a secure private key.
-
-    ```swift
-    let handler: ExternalOfferCallback = { jwtConfirmation, error in  
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-        if let confirm = jwtConfirmation {
-            alert.title = "Success"
-            alert.message = "Earn complete. You can view the confirmation on jwt.io"
-            alert.addAction(UIAlertAction(title: "View on jwt.io", style: .default, handler: { [weak alert] action in
-                UIApplication.shared.openURL(URL(string:"https://jwt.io/#debugger-io?token=\(confirm)")!)
-                alert?.dismiss(animated: true, completion: nil)
-            }))
-        } else if let e = error {
-            alert.title = "Failure"
-            alert.message = "Earn failed (\(e.localizedDescription))"
-        }
-        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: { [weak alert] action in
-            alert?.dismiss(animated: true, completion: nil)
-        }))
-        self?.present(alert, animated: true, completion: nil)
-    }
-
-    Kin.shared.requestPayment(offerJWT: encodedJWT, completion: handler)
-    ```
-
-
-## License
-The kin-ecosystem-ios-sdk library is licensed under [MIT license](LICENSE.md).
+The ```kin-ecosystem-ios-sdk``` library is licensed under the MIT license.

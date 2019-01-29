@@ -63,7 +63,6 @@ Note that this command will overwrite any existing file `secrets/.secrets`.
 If you have a wallet with XLM and KIN:
 You need to have a stellar account with funds and create a `secrets/.secrets` file locally with the following content:
 ```
-export STELLAR_CHANNEL_SEEDS=SXXX
 export STELLAR_BASE_SEED=SXXX
 export STELLAR_ADDRESS=GXXX
 ```
@@ -73,6 +72,7 @@ export STELLAR_ADDRESS=GXXX
 make create-jwt-keys:
 ```
 will create the dir `jwt/` with random encryption keys. You can add other keys if you'd like. the keys in the public_keys dir will be exported via `/v1/config` call.
+
 #### Run docker servers and system tests
 Run the following command:
 ```
@@ -81,10 +81,10 @@ make up  # start all services
 
 And in a separate shell:
 ```
-make test-system-docker  # run tests 
+make test-system-docker  # run tests
 ```
 
-To stop the services, either run Ctrl-C or 
+To stop the services
 ```
 make down
 ```
@@ -98,3 +98,4 @@ Then when you want to run your local version, instead of `make up`, run:
 ```
 make up-dev
 ```
+
