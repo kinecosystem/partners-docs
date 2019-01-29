@@ -1,12 +1,10 @@
 ---
 id: sybil
 title: Sybil Prevention
+hide_title: true
 ---
 # Preventing Multiple Accounts Creation 
-
-
 ## ([Sybil Attack](https://en.wikipedia.org/wiki/Sybil_attack))
-
 
 # Intro
 
