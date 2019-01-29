@@ -139,10 +139,6 @@ body.sideNavVisible .mainContainer {
 
 /* FAQ */
 
-div.post article h1 {
-	display: none;
-}
-
 div.post article h1 + ul > li {
 	list-style: none;
 }

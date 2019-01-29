@@ -1,6 +1,7 @@
 ---
 id: blockchain
 title: Blockchain
+hide_title: true
 ---
 
 # Blockchain FAQ

@@ -1,6 +1,7 @@
 ---
 id: android
 title: Android
+hide_title: true
 ---
 
 # Kin Ecosystem Android SDK #

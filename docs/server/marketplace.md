@@ -1,6 +1,7 @@
 ---
 id: marketplace
 title: Marketplace
+hide_title: true
 ---
 
 # Kin ecosystem Marketplace server
