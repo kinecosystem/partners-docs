@@ -57,7 +57,7 @@ NativeOffer nativeOffer =
             .description("Offer Description") // Desc. to display with offer
             .amount(150) // Purchase amount in Kin
             .image("Image URL")// Image to display with offer
-            ,build(); 
+            .build(); 
 ```
 
 #### Earn Offer:
@@ -68,7 +68,7 @@ NativeOffer nativeOffer =
             .description("Offer Description") // Desc. to display with offer
             .amount(100) // The Kin amount the user can earn by completing the earn offer 
             .image("Image URL") // Image to display with offer
-            ,build(); 
+            .build(); 
 ```
 
 
