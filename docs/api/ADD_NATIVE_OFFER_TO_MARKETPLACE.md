@@ -25,6 +25,8 @@ let offer = NativeOffer(id: "offer id", // OfferId must be a UUID
                         offerType: .spend, // or .earn
                         isModal: true)
 ```
+>**NOTE:** on iOS setting a native offer's `isModal` property to true means that when a user taps on the native offer, the marketplace will first close (dismiss) before invoking the native offer's handler, if set. The default value is false.
+
 
 <!--Android-->
 ```java
@@ -57,8 +59,6 @@ Kin.addNativeOfferClickedObserver(getNativeOfferClickedObserver());
 }
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
-
-> Note: on iOS setting a native offer's `isModal` property to true means that when a user taps on the native offer, the marketplace will first close (dismiss) before invoking the native offer's handler, if set. The default value is false.
 
 2. Create a Native Offer:	
 <!--DOCUSAURUS_CODE_TABS-->
@@ -101,7 +101,7 @@ NativeOffer nativeOffer =
             .description("Offer Description") // Desc. to display with offer
             .amount(100) // The Kin amount the user can earn by completing the earn offer 
             .image("Image URL") // Image to display with offer
-            ,build(); 
+            .build(); 
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
