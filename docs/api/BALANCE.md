@@ -4,7 +4,7 @@ hide_title: true
 
 ### Getting an Account’s Balance ###
 
-A user’s balance is the number of Kin units in his or her account (can also contain a fraction). You may want to retrieve the balance in response to a user request or to check whether a user has enough funding to perform a Spend request. When you request a user’s balance, you receive a `Balance` object in response, which contains the amount as a `Decimal` on iOS or `BigDecimal` on Android object.
+A user’s balance is the number of Kin units in his or her account (can also contain a fraction). You may want to retrieve the balance in response to a user request or to check whether a user has enough funding to perform a Spend request. When you request a user’s balance, you receive a `Balance` object in response, which contains the amount as a `Decimal` on iOS or `BigDecimal` on Android.
 
 There are 3 ways you can retrieve the user’s balance:
 
@@ -15,11 +15,14 @@ There are 3 ways you can retrieve the user’s balance:
 *To get the cached balance:*
 <!--DOCUSAURUS_CODE_TABS-->
 <!--iOS-->
+>**NOTE:** This value may be nil if no known balance is present (for example, no account is associated yet)
+
 ```swift
-// This value may be nil if no known balance is present (for example, no account is associated yet)
 Kin.shared.lastKnownBalance
 ```
 <!--Android-->
+>**NOTE:** If no account was found for the user, you will receive a balance of 0 for that user.
+
 ```java
 try {
         Balance cachedBalance = Kin.getCachedBalance();
@@ -29,7 +32,9 @@ try {
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-*To get the balance from the Kin Server (from the blockchain):*
+*To get the balance from the Kin Server (from the blockchain)*
+
+Call get balance and implement the 2 response callback functions.
 <!--DOCUSAURUS_CODE_TABS-->
 <!--iOS-->
 ```swift
@@ -56,8 +61,7 @@ Kin.getBalance(new KinCallback<Balance>() {
     });
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
-> **NOTE** on Android Call `Kin.getBalance(…)`, and implement the 2 response callback functions.
-(See [BlockchainException](android/docs/COMMON_ERRORS.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](android/docs/COMMON_ERRORS.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.)
+(See [BlockchainException](api/COMMON_ERRORS.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](api/COMMON_ERRORS.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.)
 
 *To listen continuously for balance updates:*
 
@@ -75,8 +79,6 @@ do {
 ```
 <!--Android-->
 Create an `Observer` object and implements its `onChanged()` function.
->**NOTES:**
->* The `Observer` object sends a first update with the last known balance, and then opens a connection to the blockchain network to receive subsequent live updates.
 ```java
 // Add balance observer
 balanceObserver = new Observer<Balance>() {
@@ -95,7 +97,10 @@ try {
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+>**NOTES:**
+>* The `Observer` object sends a first update with the last known balance, and then opens a connection to the blockchain network to receive subsequent live updates.
 >* Make sure to add balance observer only when required (for example when app UI need to show updated balance) and remove the observer as soon as possible to avoid keeping open network connection.
+
 When you're done listening to balance changes, remove the observer:
 
 <!--DOCUSAURUS_CODE_TABS-->

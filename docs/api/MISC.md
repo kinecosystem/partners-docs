@@ -2,10 +2,35 @@
 hide_title: true
 ---
 
-### Finding out if another user has a kin account ###
+### User Has a Kin Account ###
 
-Before paying to a user, you might want to check if this user actually exists. to do that:
+This API will help you determine whether the recipient user has a Kin Account, so if user has account you can [pay Kin to this user](api/PEER_TO_PEER.md)
 
+Call `hasAccount(…)`, while passing the userId (your app userId) and a callback function that will receive a boolean value.
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Android-->
+```java
+try {
+    Kin.hasAccount(userId, new KinCallback<Boolean>() {
+        @Override
+        public void onResponse(Boolean hasAccount) {
+            if (hasAccount != null && hasAccount){
+                createPayToUserOffer(userId);
+            } else {
+                showSnackbar("Account not found", true)
+            }
+        }
+
+        @Override
+        public void onFailure(KinEcosystemException exception) {
+            showSnackbar("Failed - " + exception.getMessage(), true);
+        }
+    });
+} catch (ClientException e) {
+    e.printStackTrace();
+}
+```
+<!--iOS-->
 ```swift
 // from sample app:
 Kin.shared.hasAccount(peer: otherUserId) { [weak self] response, error in
@@ -23,12 +48,35 @@ Kin.shared.hasAccount(peer: otherUserId) { [weak self] response, error in
     }
 }
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### User's Order History Stats ###
 
 This API provides user's stats which include information such number of Earn/Spend orders completed by the user or last earn/spend dates.
 UserStats information could be used for re-engaging users, provide specific experience for users who never earn before etc.
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Android-->
+```java
+try {
+    Kin.userStats(new KinCallback<UserStats>() {
+        @Override
+        public void onResponse(UserStats response) {
+            if (response.getEarnCount() == 0) {
+                //show first time user UI
+            }
+        }
+
+        @Override
+        public void onFailure(KinEcosystemException exception) {
+            //handle onFailure
+        }
+    });
+} catch (ClientException e) {
+    //handle ClientException
+}
+```
+<!--iOS-->
 ```swift
 Kin.shared.userStats { [weak self] stats, error in
     if let result = stats {
@@ -40,3 +88,5 @@ Kin.shared.userStats { [weak self] stats, error in
     }
 }
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
