@@ -1,5 +1,6 @@
 ---
 hide_title: true
+title: Create Account
 ---
 
 ### Creating a User’s Kin Account ###

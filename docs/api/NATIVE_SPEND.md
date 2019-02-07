@@ -1,5 +1,6 @@
 ---
 hide_title: true
+title: Native Spend
 ---
 
 ### Creating a Custom Spend Offer ###

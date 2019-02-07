@@ -1,6 +1,6 @@
 ---
 id: api
-title: Ecosytem SDK
+title: Intro
 hide_title: true
 ---
 
