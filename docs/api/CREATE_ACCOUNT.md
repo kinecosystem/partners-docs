@@ -15,8 +15,6 @@ If your app presents Kin Spend and Earn offers to your users, then each user nee
 Call `Kin.login(…)`, passing JWT credentials and an optional `KinLoginCallback` to get a response when the user is logged in and has a wallet ready for use.</br>
 If that user already has a Kin account, the function only accesses the existing account. Otherwise, the function creates a new wallet and account for the user.
 
->**NOTE** On iOS, You can immidietly call other functions after calling login. Any login or wallet creation/retrieval operations will be performed first and your calls will queue until these are done. The 'KinLoginCallback' is an optional parameter allowing you to know when login is complete, in case you need it.
-
 **JWT mode:**
 
 (See [Building the JWT Token](api/README.md#generating-the-jwt-token) to learn how to build the JWT token.)
@@ -32,6 +30,8 @@ If that user already has a Kin account, the function only accesses the existing 
         print("login failed. Error: \(error.localizedDescription)")
     }
 ```
+>**NOTE** On iOS, You can immidietly call other functions after calling login. Any login or wallet creation/retrieval operations will be performed first and your calls will queue until these are done. The 'KinLoginCallback' is an optional parameter allowing you to know when login is complete, in case you need it.
+
 <!--Android-->
 ```java
     try {
@@ -71,4 +71,4 @@ Kin.shared.logout()
     }
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
-`logout()`, is a synchronous call, meaning you can call `login(…)` immediately after that (for switching between users).
+`logout()`, is a synchronous call, meaning you can call `login(…)` immediately after that (for switching between users).  After calling `logout`, you should login again in order to interact with the SDK API's, as Kin account is required.

@@ -2,12 +2,50 @@
 hide_title: true
 ---
 
-### Launching the ecosystem experience
-The ecosystem experience can be launched at one of two entry points:
-1. Marketplace - where users can view earn and spend offers
-2. Orders history - where users can view their spend and earn history
-> The default target for opening the ecosystem is the marketplace. Here's an example of launching the experience right at the history page:
+### Displaying a specific experience in KinEcosystem ###
 
+#### Launch Kin Marketplace
+Optionally, your app can launch the Kin Marketplace offer wall. It displays Earn and Spend offers, which can be added to it by your app or by the Kin Ecosystem Server. When a user selects one of these offers, the Kin Marketplace notifies the app that created the offer. The app can then launch the Earn or Spend activity for the user to complete.
+You may choose to add your custom Earn and Spend offers to the Kin Marketplace so that there is a convenient, visible place where the user can access all offers. Some offers displayed in-app might require that the user choose to navigate to a specific page, and therefore might not be so readily visible.
+
+*To display the Kin Marketplace offer wall:*
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Android-->
+```java
+try {
+         Kin.launchEcosystem(MainActivity.this, EcosystemExperience.MARKETPLACE);
+          } catch (ClientException e) {
+            // handle exception
+      }
+```
+<!--iOS-->
+```swift
+// The default target for opening the ecosystem is the marketplace
+try? Kin.shared.launchEcosystem(from: self)
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+#### Launch Kin Order History
+Use this option to launch the Ecosystem experience right into the users’ orders history page, where they can view a list of all their spend and earn actions.
+
+*To display the Order History Page:*
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Android-->
+```java
+try {
+         Kin.launchEcosystem(MainActivity.this, EcosystemExperience.ORDER_HISTORY);
+          } catch (ClientException e) {
+            // handle exception
+      }
+```
+
+<!--iOS-->
 ```swift
 try? Kin.shared.launchEcosystem(from: self, at: .history)
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+>**NOTE:** The launchEcosystem function is not a one-time initialization function, you must call it each time you want to display a feature in KinEcosystem side.
+
