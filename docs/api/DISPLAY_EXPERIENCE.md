@@ -1,5 +1,6 @@
 ---
 hide_title: true
+title: Show Marketplace
 ---
 
 ### Displaying a specific experience in KinEcosystem ###
@@ -10,30 +11,42 @@ You may choose to add your custom Earn and Spend offers to the Kin Marketplace s
 
 *To display the Kin Marketplace offer wall:*
 
-Call `Kin.launchEcosystem(activity, EcosystemExperience.MARKETPLACE)`.
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Android-->
 ```java
 try {
          Kin.launchEcosystem(MainActivity.this, EcosystemExperience.MARKETPLACE);
           } catch (ClientException e) {
-            //
+            // handle exception
       }
 ```
+<!--iOS-->
+```swift
+// The default target for opening the ecosystem is the marketplace
+try? Kin.shared.launchEcosystem(from: self)
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Launch Kin Order History
 Use this option to launch the Ecosystem experience right into the users’ orders history page, where they can view a list of all their spend and earn actions.
 
 *To display the Order History Page:*
 
-Call `Kin.launchEcosystem(activity, EcosystemExperience.ORDER_HISTORY)`.
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Android-->
 ```java
 try {
          Kin.launchEcosystem(MainActivity.this, EcosystemExperience.ORDER_HISTORY);
           } catch (ClientException e) {
-            //
+            // handle exception
       }
 ```
+
+<!--iOS-->
+```swift
+try? Kin.shared.launchEcosystem(from: self, at: .history)
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 >**NOTE:** The launchEcosystem function is not a one-time initialization function, you must call it each time you want to display a feature in KinEcosystem side.
 

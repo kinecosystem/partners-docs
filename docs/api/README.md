@@ -1,15 +1,17 @@
 ---
-id: ios
-title: iOS
+id: api
+title: Intro
 hide_title: true
 ---
 
-# Kin Ecosystem iOS SDK #
+# Kin Ecosystem SDK #
 
 ## What is the Kin Ecosystem SDK? ##
 
 The Kin Ecosystem SDK allows you to quickly and easily integrate with the Kin platform. This enables you to provide your users with new opportunities to earn and spend the Kin digital currency from inside your app or from the Kin Marketplace offer wall. For each user, the SDK will create wallet and an account on Kin blockchain. By calling the appropriate SDK functions, your application can performs earn and spend transactions. Your users can also view their account balance and their transaction history.
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--iOS-->
 ## Installation
 The fastest way to get started with the sdk is with cocoapods (>= 1.4.0).
 ```
@@ -22,9 +24,29 @@ pod 'KinEcosystem', '0.6.3'
 
 > **Important note:** Apps using the sdk must include a NSPhotoLibraryUsageDescription key entry in the info.plist file. This is becuase the sdk may ask to use the photos library when restoring a backed up wallet. For example, you can use something like:</br>
 "_Photo library access is required for backup and restore of your kin wallet_"
-</br></br>
-If your app already includes such an entry, you do not need to change anything.
 
+If your app already includes such an entry, you do not need to change anything.
+<!--Android-->
+
+## Setting Up the Sample App ##
+
+The Kin Ecosystem SDK Sample App demonstrates how to perform common workflows such as creating a user account and creating Spend and Earn offers. You can build the Sample App from the `app` module in the Kin Ecosystem SDK Git repository. We recommend building and running the Sample App as a good way to get started with the Kin Ecosystem SDK and familiarize yourself with its functions.
+
+>**NOTE:** The Sample App is for demonstration only, and should not be used for any other purpose.
+
+The Sample App is pre-configured with the default credentials `appId='test'` and
+`jwt private key`. These credentials can be used for integration testing in any app, but authorization will fail if you attempt to use them in a production environment.
+
+*To override the default credential settings:* 
+
+Create or edit a local `credential.properties` file in the `app` module directory and add the lines below, using the `appId` and `apiKey` values you received.
+
+```java
+APP_ID="YOUR_APP_ID" // The issuer (iss). Default = 'test'.
+RS512_PRIVATE_KEY="YOUR_RS512_PRIVATE_KEY" // Used only for sample app, for production create the JWT by server side with ES256 signature.
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+>**NOTE:** For production, create the JWT by server side with ES256 signature.
 
 ## Beta and Production Environments ##
 
@@ -35,14 +57,42 @@ The Kin Ecosystem provides two working environments:
 
 Use the Beta environment to develop, integrate and test your app. Transition to the Production environment when you’re ready to go live with your Kin-integrated app.
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Android-->
+
+Add environment meta data to you manifest in application level, specifying which one you want to work with.
+For Beta: ("beta")
+```xml
+<application>
+    <meta-data android:name="com.kin.ecosystem.sdk.EnvironmentName" android:value="@string/kinecosystem_environment_beta"/>
+</application>
+```
+And for Production use: `@string/kinecosystem_environment_production` as value. 
+
+<!--iOS-->
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 >**NOTES:**
 >* When working with the Beta environment, you can only register up to 1000 users. An attempt to register additional users will result in an error.
+>* In order to switch between environments, you’ll need to clear the application cache.
 
 ## Initialize The SDK ##
-Kin Ecosystem SDK must be initialized before any interaction with the SDK, in order to do that you should call ```Kin.shared.start(environment: Environment)``` first.
+Kin Ecosystem SDK must be initialized before any interaction with the SDK, in order to do that you should first call:  
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Android-->
+```Java
+Kin.initialize(getApplicationContext())
+```
+
+<!--iOS-->
+```swift
+Kin.shared.start(environment: Environment)
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 
-   >**NOTE** `start` method does not perform any network calls and it's a synchronous method. If anything goes wrong during start, an error will be thrown.
+>**NOTE** the above method does not perform any network calls and it's a synchronous method. If anything goes wrong during start, an error will be thrown.
 
 ## Obtaining Authentication Credentials ##
 
@@ -50,7 +100,7 @@ To access the Kin Ecosystem, you’ll need to obtain authentication credentials,
 
 * **JWT authentication** – a secure authentication method to be used in production. This method uses a JSON Web Token (JWT) signed by the Kin Server to authenticate the client request. You provide the Kin team with one or more public signature keys and its corresponding keyID, and you receive a JWT issuer identifier (ISS key). (See [https://jwt.io](https://jwt.io) to learn more about JWT tokens.)
 
-You supply your credentials when calling the SDK’s ```Kin.login(…)``` function for a specific user. See [Creating a User’s Kin Account](ios/docs/CREATE_ACCOUNT.md) to learn more about login and logout.
+You supply your credentials when calling the SDK’s ```Kin.login(…)``` function for a specific user. See [Creating a User’s Kin Account](api/CREATE_ACCOUNT.md) to learn more about login and logout.
 
 ## Generating the JWT Token ##
 
@@ -104,24 +154,27 @@ This is the payload structure:
 
 The following sections show how to implement some primary APIs using the Kin Ecosystem SDK.
 
-* [Creating a User’s Kin Account](ios/docs/CREATE_ACCOUNT.md)
+* [Creating a User’s Kin Account](api/CREATE_ACCOUNT.md)
   
-* [Getting an Account’s Balance](ios/docs/BALANCE.md)
+* [Getting an Account’s Balance](api/BALANCE.md)
 
-* [Requesting Payment for a Custom Earn Offer](ios/docs/NATIVE_EARN.md)
+* [Requesting Payment for a Custom Earn Offer](api/NATIVE_EARN.md)
 
-* [Creating a Custom Spend Offer](ios/docs/NATIVE_SPEND.md)
+* [Creating a Custom Spend Offer](api/NATIVE_SPEND.md)
 
-* [Creating a Pay To User Offer](ios/docs/PEER_TO_PEER.md)
+* [Creating a Pay To User Offer](api/PEER_TO_PEER.md)
 
-* [Displaying the Kin Marketplace](ios/docs/DISPLAY_EXPERIENCE.md)
+* [Displaying the Kin Marketplace](api/DISPLAY_EXPERIENCE.md)
 
-* [Adding Native Offers to the Marketplace Offer Wall](ios/docs/ADD_NATIVE_OFFER_TO_MARKETPLACE.md)
+* [Adding Native Offers to the Marketplace Offer Wall](api/ADD_NATIVE_OFFER_TO_MARKETPLACE.md)
 
-* [Requesting an Order Confirmation](ios/docs/ORDER_CONFIRMATION.md)
+* [Requesting an Order Confirmation](api/ORDER_CONFIRMATION.md)
 
-* [Misc](ios/docs/MISC.md)
+* [Misc](api/MISC.md)
+
+## Common Errors ##
+The Ecosystem APIs can response with few types of error, [learn more here](api/COMMON_ERRORS.md)
 
 ## License ##
 
-The ```kin-ecosystem-ios-sdk``` library is licensed under the MIT license.
+The `kin-ecosystem-ios-sdk` and `kin-ecosystem-android-sdk` libraries are licensed under the MIT license.

@@ -5,11 +5,18 @@
 			"guidelines/sybil",
 			"guidelines/brand"
 		],
-		"Android": [
-			"android/android"
-		],
-		"iOS": [
-			"ios/ios"
+		"SDK API": [
+      "api/api",
+      "api/CREATE_ACCOUNT",
+      "api/BALANCE",
+      "api/NATIVE_EARN",
+      "api/NATIVE_SPEND",
+      "api/PEER_TO_PEER",
+      "api/DISPLAY_EXPERIENCE",
+      "api/ADD_NATIVE_OFFER_TO_MARKETPLACE",
+      "api/ORDER_CONFIRMATION",
+      "api/MISC",
+      "api/COMMON_ERRORS"
 		],
 		"Server": [
 			"server/marketplace",
