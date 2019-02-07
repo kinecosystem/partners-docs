@@ -1,5 +1,6 @@
 ---
 hide_title: true
+title: Miscellaneous
 ---
 
 ### User Has a Kin Account ###

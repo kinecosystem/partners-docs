@@ -1,5 +1,6 @@
 ---
 hide_title: true
+title: Order Confirmation
 ---
 
 ### Requesting an Order Confirmation ###

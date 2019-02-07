@@ -1,5 +1,6 @@
 ---
 hide_title: true
+title: Pay To User
 ---
 
 ### Creating a Pay To User Offer ###
@@ -12,7 +13,7 @@ Your app displays the offer, request user approval, and then [requests payment u
 
 *To request a Pay To User offer:*
 
-1.	Create a JWT that represents a Pay To User offer signed by you, using the header and payload templates below. (See [Generating the JWT Token](android/README.md#generating-the-jwt-token) for more details about JWT structure).
+1.	Create a JWT that represents a Pay To User offer signed by you, using the header and payload templates below. (See [Generating the JWT Token](api/README.md#generating-the-jwt-token) for more details about JWT structure).
 **JWT header:**
 ```
 {

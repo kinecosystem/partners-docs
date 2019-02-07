@@ -1,5 +1,6 @@
 ---
 hide_title: true
+title: Show Marketplace
 ---
 
 ### Displaying a specific experience in KinEcosystem ###

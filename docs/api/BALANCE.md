@@ -1,5 +1,6 @@
 ---
 hide_title: true
+title: Get Balance
 ---
 
 ### Getting an Account’s Balance ###

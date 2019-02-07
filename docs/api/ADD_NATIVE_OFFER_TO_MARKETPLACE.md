@@ -1,5 +1,6 @@
 ---
 hide_title: true
+title: Add Native Offer to Wall
 ---
 
 ### Adding a Custom Earn or Spend Offers to the Kin Marketplace Offer Wall ###

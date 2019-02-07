@@ -1,5 +1,6 @@
 ---
 hide_title: true
+title: Native Earn
 ---
 
 ### Requesting Payment for a Custom Earn Offer ###
