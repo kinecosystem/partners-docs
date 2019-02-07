@@ -26,7 +26,7 @@ const siteConfig = {
 
 	// For no header links in the top nav bar -> headerLinks: [],
 	headerLinks: [
-		{ doc: "android/android", label: "Docs" },
+		{ doc: "api/api", label: "Docs" },
 		// { doc: "faq/integration", label: "FAQ" },
 		{ page: "help", label: "Help" }
 	],
@@ -48,7 +48,7 @@ const siteConfig = {
 
 	highlight: {
 		// Highlight.js theme to use for syntax highlighting in code blocks
-		theme: 'default',
+		theme: 'hybrid',
 	},
 
 	// Add custom scripts here that would be placed in <script> tags

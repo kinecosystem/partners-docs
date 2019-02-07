@@ -53,7 +53,7 @@ class Index extends React.Component {
 						A new digital world where<br/>
 						everyone is on the same team
 					</h3>
-					<Button href={ docUrl("android/android.html") }>Documentation</Button>
+					<Button href={ docUrl("api/api.html") }>Documentation</Button>
 				</div>
 			</div>
 		);

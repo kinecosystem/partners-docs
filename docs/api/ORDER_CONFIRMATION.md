@@ -1,5 +1,6 @@
 ---
 hide_title: true
+title: Order Confirmation
 ---
 
 ### Requesting an Order Confirmation ###
@@ -8,8 +9,10 @@ In the normal flow of a transaction, you will receive an order confirmation from
 
 *To request an order confirmation:*
 
-Call `Kin.getOrderConfirmation(…)`, while passing the order’s ID and implementing the appropriate callback functions. (See [ServiceException](android/docs/COMMON_ERRORS.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.)
+Call the order confirmation function, while passing the order’s ID and implementing the appropriate callback functions. (See [ServiceException](api/COMMON_ERRORS.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.)
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Android-->
 ```java
 try {
         Kin.getOrderConfirmation("your_offer_id", new KinCallback<OrderConfirmation>() {
@@ -29,3 +32,16 @@ try {
 	    ...
     }
 ```
+<!--iOS-->
+
+```swift
+Kin.shared.orderConfirmation(for: "NSOffer_01") { status, error in
+    if let s = status, case let .completed(jwt) = s {
+        print("order complete. jwt confirmation is: \(jwt)")
+    } else {
+        // handle errors
+    }
+}
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
