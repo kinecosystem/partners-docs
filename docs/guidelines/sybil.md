@@ -4,14 +4,10 @@ title: Sybil Prevention
 hide_title: true
 ---
 # Preventing Multiple Accounts Creation 
-## ([Sybil Attack](https://en.wikipedia.org/wiki/Sybil_attack))
-
-# Intro
 
 The Kin Ecosystem SDK and server provide Kin account creation, subsidized earn offers, and native payment service (earn, spend, p2p) for our partners. Using this service, a user can create a blockchain account and complete subsidized earn offers. However, it could also incentivize attackers to try to hack and abuse the system to earn Kin in malicious ways.
 
 Kin provides services for partners and assumes that every user with a validated register JWT (signed by the host app) is a legitimate user that should be served. The signed JWT is the only protection layer available for the ecosystem backend service.
-
 
 # What is Sybil Attack? 
 
@@ -21,17 +17,13 @@ Sybil attacks will benefit an attacker if the cost of creating false users  is l
 
 In a system that incentivizes end users to contribute  and complete valuable actions within the app, Sybil attacks can be used to create many false users that will complete such actions either manually or programmatically. Doing so, an attacker can gain significant amounts of Kin without providing real value, thereby harming the ROI of Kin as a means of incentivising honest and positive users.  
 
-
 ## Kin Ecosystem SDK 
 
 The Kin Ecosystem SDK will accept any request signed by the hosting app (JWT), and, therefore, the hosting app must protect its JWT service layer and only provide JWT to authenticated and legitimate users. Only the host app has the tools to protect against sybil attacks, and thus, it should act as the gatekeeper and implement the necessary protection measures. Kin Ecosystem provides guidelines, best practices, and security updates based on shared knowledge and learnings acquired by the community of Kin partners. 
 
 User authentication (by email/phone) and protection tools (e.g. SafetyNet API) are only available or applicable for the hosting app, and they are not accessible to the Kin Ecosystem SDK layer. Therefore, it is the responsibility of the hosting app to authenticate users and  handle sybil attacks to ensure only legitimate users have access to the service. Here, we'll present possible attack vectors and recommended ways and tools to counter them. 
 
-
 ## Host App Mitigation Options
-
-
 
 1.  Authentication
     1.  JWT endpoint will be protected by email or phone verification to authenticate users. 
