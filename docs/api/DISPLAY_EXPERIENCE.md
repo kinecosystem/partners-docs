@@ -1,6 +1,6 @@
 ---
 hide_title: true
-title: Launce Experience 
+title: Launch Experience 
 ---
 
 ### Displaying a specific experience in KinEcosystem ###
