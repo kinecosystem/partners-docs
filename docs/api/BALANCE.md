@@ -2,7 +2,7 @@
 hide_title: true
 title: Get Balance
 ---
-
+## Methods of Getting Wallet Balance
 ### Getting an Account’s Balance ###
 
 A user’s balance is the number of Kin units in his or her account (can also contain a fraction). You may want to retrieve the balance in response to a user request or to check whether a user has enough funding to perform a Spend request. When you request a user’s balance, you receive a `Balance` object in response, which contains the amount as a `Decimal` on iOS or `BigDecimal` on Android.
@@ -39,27 +39,27 @@ Call get balance and implement the 2 response callback functions.
 <!--DOCUSAURUS_CODE_TABS-->
 <!--iOS-->
 ```swift
-    Kin.shared.balance() { balance, error in
-        if let b = balance {
-            print("balance is \(b.amount)")
-        } else if let e = error {
-            print("error getting balance: \(e.localizedDescription)")
-        }
+Kin.shared.balance() { balance, error in
+    if let b = balance {
+        print("balance is \(b.amount)")
+    } else if let e = error {
+        print("error getting balance: \(e.localizedDescription)")
     }
+}
 ```
 <!--Android-->
 ```java
 Kin.getBalance(new KinCallback<Balance>() {
-                    @Override
-                    public void onResponse(Balance balance) {
-                        // Got the balance from the network
-                    }
+    @Override
+    public void onResponse(Balance balance) {
+        // Got the balance from the network
+    }
 
-                    @Override
-                    public void onFailure(KinEcosystemException exception) {
-                        // Got an error from the blockchain network
-                    }
-    });
+    @Override
+    public void onFailure(KinEcosystemException exception) {
+        // Got an error from the blockchain network
+    }
+});
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 (See [BlockchainException](api/COMMON_ERRORS.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](api/COMMON_ERRORS.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.)
@@ -83,16 +83,16 @@ Create an `Observer` object and implements its `onChanged()` function.
 ```java
 // Add balance observer
 balanceObserver = new Observer<Balance>() {
-                @Override
-                public void onChanged(Balance value) {
-                    showToast("Balance - " +
-                               value.getAmount().intValue());
-                }
-            };
+    @Override
+    public void onChanged(Balance value) {
+        showToast("Balance - " + value.getAmount().intValue());
+    }
+};
 
 try {
     Kin.addBalanceObserver(balanceObserver);
-} catch (TaskFailedException e) {
+}
+catch (TaskFailedException e) {
     e.printStackTrace();
 }
 ```

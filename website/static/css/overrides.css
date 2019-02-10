@@ -4,13 +4,9 @@ body {
 	font-family: "Roboto", sans-serif !important;
 }
 
-/*.navPusher {
-	padding-top: 0;
-}
-
 .fixedHeaderContainer {
 	padding: 15px 0;
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: #292929;
 }
 
 .headerTitleWithLogo {
@@ -18,13 +14,25 @@ body {
 	font-weight: 300;
 }
 
+.navigationSlider, .slidingNav a {
+	background-color: #292929;
+}
+
+.slidingNav a:hover {
+	background-color: #777;
+}
+/*.navPusher {
+	padding-top: 0;
+}
+
 .nav-site-internal a:hover {
 	background-color: transparent !important;
 }*/
-/*
+
 .mainContainer {
-	margin-top: 40px;
-}*/
+	margin-top: 0px;
+  padding-top: 10px;
+}
 
 .mainContainer a {
 	color: #0000ff;
@@ -79,6 +87,7 @@ body.sideNavVisible .mainContainer {
 
 	.mainContainer {
 		margin-top: 0px;
+    padding-top: 20px;
 	}
 
 	/* INDEX */

@@ -3,7 +3,7 @@ hide_title: true
 title: Native Earn
 ---
 
-### Requesting Payment for a Custom Earn Offer ###
+## Requesting Payment for a Custom Earn Offer
 
 A custom Earn offer allows your users to earn Kin as a reward for performing tasks you want to incentivize, such as setting a profile picture or rating your app. (Custom offers are created by your app, as opposed to offers created by other platforms such as the Kin Ecosystem Server.)
 
@@ -13,37 +13,37 @@ Once the user has completed the task associated with the Earn offer, you request
 
 1.	Create a JWT that represents an Earn offer signed by you, using the header and payload templates below. (See [Generating the JWT Token](api/README.md#generating-the-jwt-token) for more details about JWT structure).
 
-    **JWT header:**
-    ```
-    {
-        "alg": "ES256", // Hash function
-        "typ": "JWT",
-        "kid": string" // identifier of the keypair that was used to sign the JWT. identifiers and public keys will be provided by signer authority. This enables using multiple private/public key pairs (a list of public keys and their ids need to be provided by signer authority to verifier in advanced)
-    }
-    ```
+**JWT header:**
+```json
+{
+    "alg": "ES256",    // Signature function
+    "typ": "JWT",
+    "kid": "my key id" // identifier of the keypair that was used to sign the JWT. identifiers and public keys will be provided by signer authority. This enables using multiple private/public key pairs (a list of public keys and their ids need to be provided by signer authority to verifier in advanced)
+}
+```
 
-    **JWT payload:**
-    ```
-    {
-        // common/ standard fields
-        iat: number; // issued at - seconds from Epoch
-        iss: string; // issuer
-        exp: number; // expiration
-        sub: "earn"
+**JWT payload:**
+```json
+{
+    // common/ standard fields
+    "iat": 1549814768,  // issued at - seconds from Epoch
+    "iss": "my_app_id", // issuer
+    "exp": 1549834768,  // expiration - seconds from Epoch
+    "sub": "earn",
 
-       // application fields
-       offer: {
-               id: string; // offer id is decided by you (internal)
-               amount: number; // amount of kin for this offer - price
-       }
-       recipient: {
-              user_id: string; // user_id who will perform the order
-              device_id: string; // A unique ID of the recipient user device
-              title: string; // order title - appears in order history
-              description: string; // order desc. (in order history)
-       }
+    // application fields
+    "offer": {
+		"id": "my_offer_id", // offer id is decided by you (internal)
+		"amount": 12         // amount of kin for this offer - price
+    },
+    "recipient": {
+		"user_id": "user id",       // user_id who will perform the order
+		"device_id": "user device", // A unique ID of the recipient user device
+		"title": "order title",     // order title - appears in order history
+		"description": "order history description" // order desc. (in order history)
     }
-    ```
+}
+```
 2.	Call `requestPayment` (see code example below). The Ecosystem Server credits the user account (assuming the app’s account has sufficient funds).
 
 >**NOTES:**
