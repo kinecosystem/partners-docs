@@ -75,6 +75,11 @@ make create-jwt-keys:
 will create the dir `jwt/` with random encryption keys. You can add other keys if you'd like. the keys in the public_keys dir will be exported via `/v1/config` call.
 
 #### Run docker servers and system tests
+The supplied docker-compose.yml mounts the current code into the marketplace containers.
+You need to build the code locally:
+```
+make install build
+```
 Run the following command:
 ```
 make up  # start all services
@@ -89,14 +94,3 @@ To stop the services
 ```
 make down
 ```
-
-#### Run with mounted code for development
-You will need to install the dependencies and build the code locally using:
-```
-make install build
-```
-Then when you want to run your local version, instead of `make up`, run:
-```
-make up-dev
-```
-

@@ -3,7 +3,7 @@ hide_title: true
 title: Launch Experience 
 ---
 
-### Displaying a specific experience in KinEcosystem ###
+## Launching a Specific Experience in KinEcosystem
 
 #### Launch Kin Marketplace
 Optionally, your app can launch the Kin Marketplace offer wall. It displays Earn and Spend offers, which can be added to it by your app or by the Kin Ecosystem Server. When a user selects one of these offers, the Kin Marketplace notifies the app that created the offer. The app can then launch the Earn or Spend activity for the user to complete.
@@ -15,10 +15,10 @@ You may choose to add your custom Earn and Spend offers to the Kin Marketplace s
 <!--Android-->
 ```java
 try {
-         Kin.launchEcosystem(MainActivity.this, EcosystemExperience.MARKETPLACE);
-          } catch (ClientException e) {
-            // handle exception
-      }
+    Kin.launchEcosystem(MainActivity.this, EcosystemExperience.MARKETPLACE);
+} catch (ClientException e) {
+    // handle exception
+}
 ```
 <!--iOS-->
 ```swift
@@ -36,10 +36,10 @@ Use this option to launch the Ecosystem experience right into the users’ order
 <!--Android-->
 ```java
 try {
-         Kin.launchEcosystem(MainActivity.this, EcosystemExperience.ORDER_HISTORY);
-          } catch (ClientException e) {
-            // handle exception
-      }
+    Kin.launchEcosystem(MainActivity.this, EcosystemExperience.ORDER_HISTORY);
+} catch (ClientException e) {
+    // handle exception
+}
 ```
 
 <!--iOS-->
@@ -58,11 +58,11 @@ Optionally, your app can launch the Kin Backup or Restore flows and receive call
 * Step 1 - Create `backupAndRestore` to handle responses:
 Call `Kin.getBackupAndRestoreManager(activity)`
 ```java
-    try {
-        backupAndRestore = Kin.getBackupAndRestoreManager(MainActivity.this);
-    } catch (ClientException e) {
-        // sdk not initialized
-    }
+try {
+    backupAndRestore = Kin.getBackupAndRestoreManager(MainActivity.this);
+} catch (ClientException e) {
+    // sdk not initialized
+}
 ```
 
 * Step 2 - Add callbacks for backup or restore flow as you wish:
@@ -71,54 +71,50 @@ Call `backupAndRestore.registerBackupCallback(callback)` or `backupAndRestore.re
 >**NOTE:** The callback registration should happen in `onCreate` for the cases of activity restart.
 
 ```java
-    // For Backup Flow
-    backupAndRestore.registerBackupCallback(new BackupAndRestoreCallback() {
-        @Override
-        public void onSuccess() {
-            showSnackbar("Backup Succeed", false);
-        }
+// For Backup Flow
+backupAndRestore.registerBackupCallback(new BackupAndRestoreCallback() {
+    @Override
+    public void onSuccess() {
+        showSnackbar("Backup Succeed", false);
+    }
 
-        @Override
-        public void onCancel() {
-            showSnackbar("Backup Canceled", false);
-        }
+    @Override
+    public void onCancel() {
+        showSnackbar("Backup Canceled", false);
+    }
 
-        @Override
-        public void onFailure(Throwable throwable) {
-            showSnackbar("Backup Failed " + throwable.getMessage(), true);
-        }
-    });
+    @Override
+    public void onFailure(Throwable throwable) {
+        showSnackbar("Backup Failed " + throwable.getMessage(), true);
+    }
+});
 
-    // For Restore Flow
-    backupAndRestore.registerRestoreCallback(new BackupAndRestoreCallback() {
-        @Override
-        public void onSuccess() {
-            showSnackbar("Restore Succeed", false);
-        }
+// For Restore Flow
+backupAndRestore.registerRestoreCallback(new BackupAndRestoreCallback() {
+    @Override
+    public void onSuccess() {
+        showSnackbar("Restore Succeed", false);
+    }
 
-        @Override
-        public void onCancel() {
-            showSnackbar("Restore Canceled", false);
-        }
+    @Override
+    public void onCancel() {
+        showSnackbar("Restore Canceled", false);
+    }
 
-        @Override
-        public void onFailure(Throwable throwable) {
-            showSnackbar("Restore Failed " + throwable.getMessage(), true);
-        }
-    });
+    @Override
+    public void onFailure(Throwable throwable) {
+        showSnackbar("Restore Failed " + throwable.getMessage(), true);
+    }
+});
 ```
-<!--iOS-->
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 * Step 3 - In your `onActivityResult` method: Call `backupAndRestore.onActivityResult(...)` to pass the results.
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Android-->
 ```java
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        backupAndRestore.onActivityResult(requestCode, resultCode, data);
-    }
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    backupAndRestore.onActivityResult(requestCode, resultCode, data);
+}
 ```
 
 * Step 4 - Finally, launch Backup or Restore simply by calling: `backupAndRestore.backupFlow()` or `backupAndRestore.restoreFlow()`.

@@ -9,7 +9,7 @@ The Kin Ecosystem SDK and server provide Kin account creation, subsidized earn o
 
 Kin provides services for partners and assumes that every user with a validated register JWT (signed by the host app) is a legitimate user that should be served. The signed JWT is the only protection layer available for the ecosystem backend service.
 
-# What is Sybil Attack? 
+## What is Sybil Attack? 
 
 Sybil ([https://en.wikipedia.org/wiki/Sybil_attack](https://en.wikipedia.org/wiki/Sybil_attack))  attack is a known attack vector in p2p reputation systems were a single or a group of attackers create many false identities and gain disproportionate power to influence the system. For example, an attacker may orchestrate these identities to upvote, like, or follow a member of the system to create unfair promotion.
 

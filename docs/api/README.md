@@ -4,9 +4,9 @@ title: Intro
 hide_title: true
 ---
 
-# Kin Ecosystem SDK #
+# Kin Ecosystem SDK
 
-## What is the Kin Ecosystem SDK? ##
+## What is the Kin Ecosystem SDK?
 
 The Kin Ecosystem SDK allows you to quickly and easily integrate with the Kin platform. This enables you to provide your users with new opportunities to earn and spend the Kin digital currency from inside your app or from the Kin Marketplace offer wall. For each user, the SDK will create wallet and an account on Kin blockchain. By calling the appropriate SDK functions, your application can performs earn and spend transactions. Your users can also view their account balance and their transaction history.
 
@@ -15,20 +15,19 @@ The Kin Ecosystem SDK allows you to quickly and easily integrate with the Kin pl
 <!--Android-->
 1. Add the following lines to your project module's ```build.gradle``` file.
 ```groovy
- repositories {
-     ...
-     maven {
-         url 'https://jitpack.io'
-     }
- }
+repositories {
+	...
+	maven {
+		url 'https://jitpack.io'
+	}
+}
 ```
 2.	Add the following lines to the app module's ```build.gradle``` file.
 ```groovy
- dependencies {
-     ...
-     implementation 'com.github.kinfoundation.kin-ecosystem-android-sdk:sdk:0.4.0'
-
- }
+dependencies {
+	...
+	implementation 'com.github.kinfoundation.kin-ecosystem-android-sdk:sdk:0.4.0'
+}
 ```
 >**NOTE:** The kin-ecosystem-android-sdk arr is tested on Android OS versions 4.4 (API level 19) and above. 
 >* Some functionality such as observing balance updates will not be supported on lower OS versions.
@@ -44,7 +43,7 @@ pod 'KinEcosystem', '0.6.3'
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Usage and the Sample App ##
+## Usage and the Sample App
 
 The Kin Ecosystem SDK Sample App demonstrates how to perform common workflows such as creating a user account and creating Spend and Earn offers. You can build the Sample App from the `app` module in the Kin Ecosystem SDK Git repository. We recommend building and running the Sample App as a good way to get started with the Kin Ecosystem SDK and familiarize yourself with its functions.
 
@@ -73,7 +72,7 @@ If your app already includes such an entry, you do not need to change anything.
 <!--END_DOCUSAURUS_CODE_TABS-->
 >**NOTE:** For production, create the JWT by server side with ES256 signature.
 
-## Beta and Production Environments ##
+## Beta and Production Environments
 
 The Kin Ecosystem provides two working environments:
 
@@ -101,7 +100,7 @@ And for Production use: `@string/kinecosystem_environment_production` as value.
 >* When working with the Beta environment, you can only register up to 1000 users. An attempt to register additional users will result in an error.
 >* In order to switch between environments, you’ll need to clear the application cache.
 
-## Initialize The SDK ##
+## Initialize The SDK
 Kin Ecosystem SDK must be initialized before any interaction with the SDK, in order to do that you should first call:  
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -119,7 +118,7 @@ Kin.shared.start(environment: Environment)
 
 >**NOTE** the above method does not perform any network calls and it's a synchronous method. If anything goes wrong during start, an error will be thrown.
 
-## Obtaining Authentication Credentials ##
+## Obtaining Authentication Credentials
 
 To access the Kin Ecosystem, you’ll need to obtain authentication credentials, which you then use to register your users.
 
@@ -127,55 +126,59 @@ To access the Kin Ecosystem, you’ll need to obtain authentication credentials,
 
 You supply your credentials when calling the SDK’s ```Kin.login(…)``` function for a specific user. See [Creating a User’s Kin Account](api/CREATE_ACCOUNT.md) to learn more about login and logout.
 
-## Generating the JWT Token ##
+## Generating the JWT Token
 
-A JWT token is a string that is composed of 3 parts:
+##### A JWT token is a string that is composed of 3 parts:
 
 * **Header** – a JSON structure encoded in Base64Url
 * **Payload** – a JSON structure encoded in Base64Url
 * **Signature** – constructed with this formula:
 
-    ```ES256(base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)```
-
-    -- where the secret value is the private key of your agreed-on public/private key pair.
+```
+ES256(base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)
+```
+where the secret's value is the private key of your agreed-on public/private key pair.
 
 The 3 parts are then concatenated, with the ‘.’ character between each 2 consecutive parts, as follows:
 
-```<header> + “.” + <payload> + “.” + <signature>```
+```
+<header> + "." + <payload> + "." + <signature>
+```
 
 See https://jwt.io to learn more about how to build a JWT token, and to find libraries that you can use to do this.
 
-This is the header structure:
+##### This is the header's structure:
 
-```
+```json
 {
     "alg": "ES256",
     "typ": "JWT",
-    "kid": string" // ID of the keypair that was used to sign the JWT.
-    // IDs and public keys will be provided by the signing authority.
-    // This enables using multiple private/public key pairs.
-    // (The signing authority must provide the verifier with a list of public
-    // keys and their IDs in advance.)
+    "kid": "my key id"
 }
 ```
+The kid is the ID of the keypair that was used to sign the JWT.
+IDs and public keys will be provided by the signing authority.
+This enables using multiple private/public key pairs
+(The signing authority must provide the verifier with a list of public
+keys and their IDs in advance).
 
-This is the payload structure:
+##### This is the payload's structure:
 
-```
+```json
 {
-    // standard fields
-    iat: number;  // the time this token was issued, in seconds from Epoch
-    iss: string;  // issuer (Kin will provide this value)
-    exp: number;  // the time until this token expires, in seconds from Epoch
-    sub: "register"
+	// standard fields
+	"iat": 1549814768,  // the time this token was issued, in seconds from Epoch
+	"iss": "my_app_id", // issuer (Kin will provide this value)
+	"exp": 1549834768,  // the time this token expires, in seconds from Epoc
+	"sub": "register",
 
-    // application fields
-    user_id: string; // A unique ID of the end user (must only be unique among your app’s users; not globally unique)
-    device_id: string; // A unique ID of the user's device
+	// application fields
+	"user_id": "user id", // A unique ID of the end user (must only be unique among your app’s users; not globally unique)
+	"device_id": "device id" // A unique ID of the user's device
 }
 ```
 
-## Primary APIs ##
+## Primary APIs
 
 The following sections show how to implement some primary APIs using the Kin Ecosystem SDK.
 
@@ -197,9 +200,9 @@ The following sections show how to implement some primary APIs using the Kin Eco
 
 * [Misc](api/MISC.md)
 
-## Common Errors ##
+## Common Errors
 The Ecosystem APIs can response with few types of error, [learn more here](api/COMMON_ERRORS.md)
 
-## License ##
+## License
 
 The `kin-ecosystem-ios-sdk` and `kin-ecosystem-android-sdk` libraries are licensed under the MIT license.

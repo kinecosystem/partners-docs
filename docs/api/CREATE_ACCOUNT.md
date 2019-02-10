@@ -3,7 +3,7 @@ hide_title: true
 title: Create Account
 ---
 
-### Creating a User’s Kin Account ###
+## Creating a User’s Kin Account
 
 If your app presents Kin Spend and Earn offers to your users, then each user needs a Kin wallet and account in order to take advantage of those offers.
 
@@ -23,33 +23,33 @@ If that user already has a Kin account, the function only accesses the existing 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--iOS-->
 ```swift
-    try Kin.shared.login(jwt: encodedJWT) { error in
-        guard let e = error else {
-            print("login success")
-            return
-        }
-        print("login failed. Error: \(error.localizedDescription)")
+try Kin.shared.login(jwt: encodedJWT) { error in
+    guard let e = error else {
+        print("login success")
+        return
     }
+    print("login failed. Error: \(error.localizedDescription)")
+}
 ```
 >**NOTE** On iOS, You can immidietly call other functions after calling login. Any login or wallet creation/retrieval operations will be performed first and your calls will queue until these are done. The 'KinLoginCallback' is an optional parameter allowing you to know when login is complete, in case you need it.
 
 <!--Android-->
 ```java
-    try {
-        Kin.login(jwt, new KinCallback<Void>() {
-            @Override
-            public void onResponse(Void response) {
-                Log.d(TAG, "JWT login succeed");
-            }
-    
-            @Override
-            public void onFailure(KinEcosystemException exception) {
-                Log.e(TAG, "JWT login failed: " + exception.getMessage());
-            }
-        });
-    } catch (BlockchainException e) {
-        // Handle exception…
-    }
+try {
+    Kin.login(jwt, new KinCallback<Void>() {
+        @Override
+        public void onResponse(Void response) {
+            Log.d(TAG, "JWT login succeed");
+        }
+
+        @Override
+        public void onFailure(KinEcosystemException exception) {
+            Log.e(TAG, "JWT login failed: " + exception.getMessage());
+        }
+    });
+} catch (BlockchainException e) {
+    // Handle exception…
+}
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -64,12 +64,12 @@ Kin.shared.logout()
 ```
 <!--Android-->
 ```java
-    try {
-        Kin.logout();
-        // the rest app logout logic
-    } catch (ClientException e) {
-        // Handle exception…
-    }
+try {
+    Kin.logout();
+    // the rest app logout logic
+} catch (ClientException e) {
+    // Handle exception…
+}
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 `logout()`, is a synchronous call, meaning you can call `login(…)` immediately after that (for switching between users).  After calling `logout`, you should login again in order to interact with the SDK API's, as Kin account is required.
