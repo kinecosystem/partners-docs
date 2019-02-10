@@ -12,14 +12,6 @@ The Kin Ecosystem SDK allows you to quickly and easily integrate with the Kin pl
 
 ## Installation
 <!--DOCUSAURUS_CODE_TABS-->
-<!--iOS-->
-The fastest way to get started with the sdk is with cocoapods (>= 1.4.0).
-```
-pod 'KinEcosystem', '0.6.3'
-```
-> Notice for apps using swift 3.2: the pod installation will change your project's swift version target to 4.0</br>
-> This is because the sdk uses swift 4.0, and cocoapods force the pod's swift version on the project. For now, you can manually change your project's swift version in the build setting. A better solution will be available soon.
-
 <!--Android-->
 1. Add the following lines to your project module's ```build.gradle``` file.
 ```groovy
@@ -42,6 +34,14 @@ pod 'KinEcosystem', '0.6.3'
 >* Some functionality such as observing balance updates will not be supported on lower OS versions.
 >* If your app supports lower OS versions (minSdkVersion < 19) we recommend to only enable Kin integration for users with version 4.4 and above.
 
+<!--iOS-->
+The fastest way to get started with the sdk is with cocoapods (>= 1.4.0).
+```
+pod 'KinEcosystem', '0.6.3'
+```
+>**NOTE** for apps using swift 3.2: the pod installation will change your project's swift version target to 4.0</br>
+> This is because the sdk uses swift 4.0, and cocoapods force the pod's swift version on the project. For now, you can manually change your project's swift version in the build setting. A better solution will be available soon.
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Usage and the Sample App ##
@@ -54,13 +54,6 @@ The Sample App is pre-configured with the default credentials `appId='test'` and
 `jwt private key`. These credentials can be used for integration testing in any app, but authorization will fail if you attempt to use them in a production environment.
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--iOS-->
-
-> **Important note:** Apps using the sdk must include a NSPhotoLibraryUsageDescription key entry in the info.plist file. This is becuase the sdk may ask to use the photos library when restoring a backed up wallet. For example, you can use something like:</br>
-"_Photo library access is required for backup and restore of your kin wallet_"
-
-If your app already includes such an entry, you do not need to change anything.
-
 <!--Android-->
 *To override the default credential settings:* 
 
@@ -70,6 +63,13 @@ Create or edit a local `credential.properties` file in the `app` module director
 APP_ID="YOUR_APP_ID" // The issuer (iss). Default = 'test'.
 RS512_PRIVATE_KEY="YOUR_RS512_PRIVATE_KEY" // Used only for sample app, for production create the JWT by server side with ES256 signature.
 ```
+<!--iOS-->
+
+>**NOTE:** Apps using the sdk must include a NSPhotoLibraryUsageDescription key entry in the info.plist file. This is becuase the sdk may ask to use the photos library when restoring a backed up wallet. For example, you can use something like:</br>
+"_Photo library access is required for backup and restore of your kin wallet_"
+
+If your app already includes such an entry, you do not need to change anything.
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 >**NOTE:** For production, create the JWT by server side with ES256 signature.
 
@@ -106,8 +106,8 @@ Kin Ecosystem SDK must be initialized before any interaction with the SDK, in or
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Android-->
-```Java
-Kin.initialize(getApplicationContext())
+```java
+Kin.initialize(getApplicationContext());
 ```
 
 <!--iOS-->
