@@ -14,7 +14,7 @@ Once the user has completed the task associated with the Earn offer, you request
 1.	Create a JWT that represents an Earn offer signed by you, using the header and payload templates below. (See [Generating the JWT Token](api/README.md#generating-the-jwt-token) for more details about JWT structure).
 
 **JWT header:**
-```json
+```javascript
 {
     "alg": "ES256",    // Signature function
     "typ": "JWT",
@@ -23,7 +23,7 @@ Once the user has completed the task associated with the Earn offer, you request
 ```
 
 **JWT payload:**
-```json
+```javascript
 {
     // common/ standard fields
     "iat": 1549814768,  // issued at - seconds from Epoch
