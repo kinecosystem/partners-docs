@@ -149,7 +149,7 @@ See https://jwt.io to learn more about how to build a JWT token, and to find lib
 
 ##### This is the header's structure:
 
-```json
+```javascript
 {
     "alg": "ES256",
     "typ": "JWT",
@@ -164,7 +164,7 @@ keys and their IDs in advance).
 
 ##### This is the payload's structure:
 
-```json
+```javascript
 {
 	// standard fields
 	"iat": 1549814768,  // the time this token was issued, in seconds from Epoch

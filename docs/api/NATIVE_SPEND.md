@@ -17,7 +17,7 @@ A custom Spend offer allows your users to unlock unique spend opportunities that
 1.	Create a JWT that represents a Spend offer signed by you, using the header and payload templates below. (See [Generating the JWT Token](api/README.md#generating-the-jwt-token) for more details about JWT structure).
 
 **JWT header:**
-```json
+```javascript
 {
     "alg": "ES256",    // Signature function
     "typ": "JWT",
@@ -26,7 +26,7 @@ A custom Spend offer allows your users to unlock unique spend opportunities that
 ```
 
 **JWT payload:**
-```json
+```javascript
 {
     // common/ standard fields
     "iat": 1549814768,  // issued at - seconds from Epoch
