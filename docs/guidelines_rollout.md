@@ -1,5 +1,4 @@
 ---
-id: rollout
 title: Rollout Plan
 hide_title: true
 ---

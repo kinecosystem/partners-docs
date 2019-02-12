@@ -1,5 +1,4 @@
 ---
-id: integration
 title: Integration
 hide_title: true
 ---

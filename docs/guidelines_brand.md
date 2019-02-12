@@ -1,6 +1,4 @@
 ---
-id: brand
-title: Brand
 hide_title: true
 ---
 

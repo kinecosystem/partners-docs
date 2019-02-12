@@ -1,6 +1,6 @@
 ---
+title: Launch Experience
 hide_title: true
-title: Launch Experience 
 ---
 
 ## Launching a Specific Experience in KinEcosystem

@@ -1,6 +1,6 @@
 ---
-hide_title: true
 title: Get Balance
+hide_title: true
 ---
 ## Methods of Getting Wallet Balance
 ### Getting an Account’s Balance ###
@@ -62,7 +62,7 @@ Kin.getBalance(new KinCallback<Balance>() {
 });
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
-(See [BlockchainException](api/COMMON_ERRORS.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](api/COMMON_ERRORS.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.)
+(See [BlockchainException](api_common_errors.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](api_common_errors.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.)
 
 *To listen continuously for balance updates:*
 

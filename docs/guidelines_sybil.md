@@ -1,5 +1,4 @@
 ---
-id: sybil
 title: Sybil Prevention
 hide_title: true
 ---

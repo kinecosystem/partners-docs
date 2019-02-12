@@ -1,5 +1,4 @@
 ---
-id: api
 title: Intro
 hide_title: true
 ---
@@ -124,7 +123,7 @@ To access the Kin Ecosystem, you’ll need to obtain authentication credentials,
 
 * **JWT authentication** – a secure authentication method to be used in production. This method uses a JSON Web Token (JWT) signed by the Kin Server to authenticate the client request. You provide the Kin team with one or more public signature keys and its corresponding keyID, and you receive a JWT issuer identifier (ISS key). (See [https://jwt.io](https://jwt.io) to learn more about JWT tokens.)
 
-You supply your credentials when calling the SDK’s ```Kin.login(…)``` function for a specific user. See [Creating a User’s Kin Account](api/CREATE_ACCOUNT.md) to learn more about login and logout.
+You supply your credentials when calling the SDK’s ```Kin.login(…)``` function for a specific user. See [Creating a User’s Kin Account](api_create_account.md) to learn more about login and logout.
 
 ## Generating the JWT Token
 
@@ -182,26 +181,26 @@ keys and their IDs in advance).
 
 The following sections show how to implement some primary APIs using the Kin Ecosystem SDK.
 
-* [Creating a User’s Kin Account](api/CREATE_ACCOUNT.md)
+* [Creating a User’s Kin Account](api_create_account.md)
   
-* [Getting an Account’s Balance](api/BALANCE.md)
+* [Getting an Account’s Balance](api_balance.md)
 
-* [Requesting Payment for a Custom Earn Offer](api/NATIVE_EARN.md)
+* [Requesting Payment for a Custom Earn Offer](api_native_earn.md)
 
-* [Creating a Custom Spend Offer](api/NATIVE_SPEND.md)
+* [Creating a Custom Spend Offer](api_native_spend.md)
 
-* [Creating a Pay To User Offer](api/PEER_TO_PEER.md)
+* [Creating a Pay To User Offer](api_p2p.md)
 
-* [Launch Kin Ecosystem Experiences](api/DISPLAY_EXPERIENCE.md)
+* [Launch Kin Ecosystem Experiences](api_launch_experience.md)
 
-* [Adding Native Offers to the Marketplace Offer Wall](api/ADD_NATIVE_OFFER_TO_MARKETPLACE.md)
+* [Adding Native Offers to the Marketplace Offer Wall](api_add_native_offer_to_marketplace.md)
 
-* [Requesting an Order Confirmation](api/ORDER_CONFIRMATION.md)
+* [Requesting an Order Confirmation](api_order_confirmation.md)
 
-* [Misc](api/MISC.md)
+* [Misc](api_misc.md)
 
 ## Common Errors
-The Ecosystem APIs can response with few types of error, [learn more here](api/COMMON_ERRORS.md)
+The Ecosystem APIs can response with few types of error, [learn more here](api_common_errors.md)
 
 ## License
 
