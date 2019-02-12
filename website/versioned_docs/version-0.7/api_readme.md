@@ -98,8 +98,10 @@ And for Production use: `@string/kinecosystem_environment_production` as value.
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 >**NOTES:**
->* When working with the Beta environment, you can only register up to 1000 users. An attempt to register additional users will result in an error.
->* In order to switch between environments, you’ll need to clear the application cache.
+>
+> When working with the Beta environment, you can only register up to 1000 users. An attempt to register additional users will result in an error.
+>
+> In order to switch between environments, you’ll need to clear the application cache.
 
 ## Initialize The SDK
 Kin Ecosystem SDK must be initialized before any interaction with the SDK, in order to do that you should first call:  
