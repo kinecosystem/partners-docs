@@ -12,9 +12,11 @@ original_id: api_readme
 The Kin Ecosystem SDK allows you to quickly and easily integrate with the Kin platform. This enables you to provide your users with new opportunities to earn and spend the Kin digital currency from inside your app or from the Kin Marketplace offer wall. For each user, the SDK will create wallet and an account on Kin blockchain. By calling the appropriate SDK functions, your application can performs earn and spend transactions. Your users can also view their account balance and their transaction history.
 
 ## Installation
+
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Android-->
 1. Add the following lines to your project module's ```build.gradle``` file.
+
 ```groovy
 repositories {
 	...
@@ -23,23 +25,31 @@ repositories {
 	}
 }
 ```
-2.	Add the following lines to the app module's ```build.gradle``` file.
+
+2. Add the following lines to the app module's ```build.gradle``` file.
+
 ```groovy
 dependencies {
 	...
 	implementation 'com.github.kinfoundation.kin-ecosystem-android-sdk:sdk:0.4.0'
 }
 ```
->**NOTE:** The kin-ecosystem-android-sdk arr is tested on Android OS versions 4.4 (API level 19) and above. 
->* Some functionality such as observing balance updates will not be supported on lower OS versions.
->* If your app supports lower OS versions (minSdkVersion < 19) we recommend to only enable Kin integration for users with version 4.4 and above.
+
+> **NOTE:**   
+> The kin-ecosystem-android-sdk arr is tested on Android OS versions 4.4 (API level 19) and above.  
+>    
+> Some functionality such as observing balance updates will not be supported on lower OS versions.  
+> 
+> If your app supports lower OS versions (minSdkVersion < 19) we recommend to only enable Kin integration for users with version 4.4 and above.  
 
 <!--iOS-->
 The fastest way to get started with the sdk is with cocoapods (>= 1.4.0).
+
 ```
 pod 'KinEcosystem', '0.6.3'
 ```
->**NOTE** for apps using swift 3.2: the pod installation will change your project's swift version target to 4.0</br>
+
+> **NOTE** for apps using swift 3.2: the pod installation will change your project's swift version target to 4.0</br>
 > This is because the sdk uses swift 4.0, and cocoapods force the pod's swift version on the project. For now, you can manually change your project's swift version in the build setting. A better solution will be available soon.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -48,7 +58,7 @@ pod 'KinEcosystem', '0.6.3'
 
 The Kin Ecosystem SDK Sample App demonstrates how to perform common workflows such as creating a user account and creating Spend and Earn offers. You can build the Sample App from the `app` module in the Kin Ecosystem SDK Git repository. We recommend building and running the Sample App as a good way to get started with the Kin Ecosystem SDK and familiarize yourself with its functions.
 
->**NOTE:** The Sample App is for demonstration only, and should not be used for any other purpose.
+> **NOTE:** The Sample App is for demonstration only, and should not be used for any other purpose.
 
 The Sample App is pre-configured with the default credentials `appId='test'` and
 `jwt private key`. These credentials can be used for integration testing in any app, but authorization will fail if you attempt to use them in a production environment.
@@ -65,13 +75,13 @@ RS512_PRIVATE_KEY="YOUR_RS512_PRIVATE_KEY" // Used only for sample app, for prod
 ```
 <!--iOS-->
 
->**NOTE:** Apps using the sdk must include a NSPhotoLibraryUsageDescription key entry in the info.plist file. This is becuase the sdk may ask to use the photos library when restoring a backed up wallet. For example, you can use something like:</br>
+> **NOTE:** Apps using the sdk must include a NSPhotoLibraryUsageDescription key entry in the info.plist file. This is becuase the sdk may ask to use the photos library when restoring a backed up wallet. For example, you can use something like:</br>
 "_Photo library access is required for backup and restore of your kin wallet_"
 
 If your app already includes such an entry, you do not need to change anything.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
->**NOTE:** For production, create the JWT by server side with ES256 signature.
+> **NOTE:** For production, create the JWT by server side with ES256 signature.
 
 ## Beta and Production Environments
 
@@ -87,20 +97,21 @@ Use the Beta environment to develop, integrate and test your app. Transition to 
 
 Add environment meta data to you manifest in application level, specifying which one you want to work with.
 For Beta: ("beta")
+
 ```xml
 <application>
     <meta-data android:name="com.kin.ecosystem.sdk.EnvironmentName" android:value="@string/kinecosystem_environment_beta"/>
 </application>
 ```
+
 And for Production use: `@string/kinecosystem_environment_production` as value. 
 
 <!--iOS-->
 <!--END_DOCUSAURUS_CODE_TABS-->
 
->**NOTES:**
->
-> When working with the Beta environment, you can only register up to 1000 users. An attempt to register additional users will result in an error.
->
+> **NOTES:**  
+> When working with the Beta environment, you can only register up to 1000 users. An attempt to register additional users will result in an error.  
+> 
 > In order to switch between environments, you’ll need to clear the application cache.
 
 ## Initialize The SDK

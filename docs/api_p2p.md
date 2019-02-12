@@ -13,7 +13,7 @@ Your app displays the offer, request user approval, and then [requests payment u
 
 *To request a Pay To User offer:*
 
-1.	Create a JWT that represents a Pay To User offer signed by you, using the header and payload templates below. (See [Generating the JWT Token](api_readme.md#generating-the-jwt-token) for more details about JWT structure).
+1. Create a JWT that represents a Pay To User offer signed by you, using the header and payload templates below. (See [Generating the JWT Token](api_readme.md#generating-the-jwt-token) for more details about JWT structure).
 **JWT header:**
 ```javascript
 {
@@ -52,11 +52,13 @@ Your app displays the offer, request user approval, and then [requests payment u
 }
 ```
 
-2.	Call `payToUser(…)`, while passing the JWT you built and a handler that will receive purchase confirmation.
+2. Call `payToUser(…)`, while passing the JWT you built and a handler that will receive purchase confirmation.
 
-> **NOTES:**
-> * The following snippet is taken from the SDK Sample App, in which the JWT is created and signed by the iOS client side for presentation purposes only. Do not use this method in production! In production, the JWT must be signed by the server, with a secure private key.
-> * See [BlockchainException](api_common_errors.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](api_common_errors.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.
+> **NOTES:**  
+> The following snippet is taken from the SDK Sample App, in which the JWT is created and signed by the iOS client side for presentation purposes only. Do not use this method in production! In production, the JWT must be signed by the server, with a secure private key.  
+> 
+> See [BlockchainException](api_common_errors.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](api_common_errors.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.  
+
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Android-->
 ```java
@@ -113,4 +115,4 @@ _ = Kin.shared.payToUser(offerJWT: encoded, completion: handler)
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-3.	Complete the pay to user offer after you receive confirmation from the Kin Server that the funds were transferred successfully.
+3. Complete the pay to user offer after you receive confirmation from the Kin Server that the funds were transferred successfully.
