@@ -27,13 +27,13 @@ class Footer extends React.Component {
 					</a>
 					<div>
 						<h5>Docs</h5>
-						<a href={ this.docUrl("android/android.html") }>
-							Android
+						<a href={ this.docUrl("api_readme.html") }>
+							API
 						</a>
-						<a href={ this.docUrl("ios/ios.html") }>
-							iOS
+						<a href={ this.docUrl("guidelines_rollout.html") }>
+							Guidelines
 						</a>
-						<a href={this.docUrl("server_marketplace.html") }>
+						<a href={ this.docUrl("server_marketplace.html") }>
 							Server
 						</a>
 					</div>
