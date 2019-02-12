@@ -1,4 +1,5 @@
 ---
+title: Brand Guidelines
 hide_title: true
 ---
 
