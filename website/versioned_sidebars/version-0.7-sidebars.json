@@ -1,0 +1,36 @@
+{
+  "version-0.7-docs": {
+    "Guidelines": [
+      "version-0.7-guidelines_rollout",
+      "version-0.7-guidelines_sybil",
+      "version-0.7-guidelines_brand"
+    ],
+    "SDK API": [
+      "version-0.7-api_readme",
+      "version-0.7-api_create_account",
+      "version-0.7-api_balance",
+      "version-0.7-api_native_earn",
+      "version-0.7-api_native_spend",
+      "version-0.7-api_p2p",
+      "version-0.7-api_launch_experience",
+      "version-0.7-api_add_native_offer_to_marketplace",
+      "version-0.7-api_order_confirmation",
+      "version-0.7-api_misc",
+      "version-0.7-api_common_errors"
+    ],
+    "Server": [
+      "version-0.7-server_marketplace",
+      "version-0.7-server_jwt_service",
+      "version-0.7-server_payment_service",
+      "version-0.7-server_local_env"
+    ]
+  },
+  "version-0.7-faq": {
+    "FAQ": [
+      "version-0.7-faq_integration",
+      "version-0.7-faq_blockchain",
+      "version-0.7-faq_partners",
+      "version-0.7-faq_consumers"
+    ]
+  }
+}
