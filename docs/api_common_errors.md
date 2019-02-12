@@ -1,6 +1,6 @@
 ---
-hide_title: true
 title: Errors
+hide_title: true
 ---
 
 ## Common Errors
@@ -8,7 +8,7 @@ Most of the errors are derived from the `KinEcosystemException` exception, Excep
 
 #### ClientException
 Represents an error in local client SDK, error code might be:
-* `ACCOUNT_NOT_LOGGED_IN` - Account is not logged in, use (`Kin.login(…)`) method first. see [Create Account](api/CREATE_ACCOUNT.md).
+* `ACCOUNT_NOT_LOGGED_IN` - Account is not logged in, use (`Kin.login(…)`) method first. see [Create Account](api_create_account.md).
 * `BAD_CONFIGURATION` - Bad or missing configuration parameters.
 * `INTERNAL_INCONSISTENCY` - Some unexpected error occurred internally.
 

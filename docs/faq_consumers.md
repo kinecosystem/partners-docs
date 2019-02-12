@@ -1,5 +1,4 @@
 ---
-id: consumers
 title: Consumers
 hide_title: true
 ---

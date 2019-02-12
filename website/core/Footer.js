@@ -33,7 +33,7 @@ class Footer extends React.Component {
 						<a href={ this.docUrl("ios/ios.html") }>
 							iOS
 						</a>
-						<a href={this.docUrl("server/marketplace.html") }>
+						<a href={this.docUrl("server_marketplace.html") }>
 							Server
 						</a>
 					</div>

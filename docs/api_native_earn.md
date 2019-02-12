@@ -1,6 +1,6 @@
 ---
-hide_title: true
 title: Native Earn
+hide_title: true
 ---
 
 ## Requesting Payment for a Custom Earn Offer
@@ -11,7 +11,7 @@ Once the user has completed the task associated with the Earn offer, you request
 
 *To request payment for a user who has completed an Earn offer:*
 
-1.	Create a JWT that represents an Earn offer signed by you, using the header and payload templates below. (See [Generating the JWT Token](api/README.md#generating-the-jwt-token) for more details about JWT structure).
+1.	Create a JWT that represents an Earn offer signed by you, using the header and payload templates below. (See [Generating the JWT Token](api_readme.md#generating-the-jwt-token) for more details about JWT structure).
 
 **JWT header:**
 ```javascript
@@ -48,7 +48,7 @@ Once the user has completed the task associated with the Earn offer, you request
 
 >**NOTES:**
 >* The following snippet is taken from the SDK Sample App, in which the JWT is created and signed by the client side for presentation purposes only. Do not use this method in production! In production, the JWT must be signed by the server, with a secure private key.
-> * See [BlockchainException](api/COMMON_ERRORS.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](api/COMMON_ERRORS.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.
+> * See [BlockchainException](api_common_errors.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](api_common_errors.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Android-->
 ```java

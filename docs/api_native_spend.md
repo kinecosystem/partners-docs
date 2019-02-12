@@ -1,11 +1,11 @@
 ---
-hide_title: true
 title: Native Spend
+hide_title: true
 ---
 
 ## Creating a Custom Spend Offer
 
-A custom Spend offer allows your users to unlock unique spend opportunities that you define within your app. (Custom offers are created by your app, as opposed to [built-in offers displayed in the Kin Marketplace offer wall](api/#adding-a-custom-spend-offer-to-the-kin-marketplace-offer-wall).) Your app displays the offer, request user approval, and then [requests payment using the Kin purchase API](api/#requesting-purchase-payment-for-a-custom-spend-offer).
+A custom Spend offer allows your users to unlock unique spend opportunities that you define within your app. (Custom offers are created by your app, as opposed to [built-in offers displayed in the Kin Marketplace offer wall](#adding-a-custom-spend-offer-to-the-kin-marketplace-offer-wall).) Your app displays the offer, request user approval, and then [requests payment using the Kin purchase API](#requesting-purchase-payment-for-a-custom-spend-offer).
 
 *To create a custom Spend offer:*
 
@@ -14,7 +14,7 @@ A custom Spend offer allows your users to unlock unique spend opportunities that
 
 *To request payment for a custom Spend offer:*
 
-1.	Create a JWT that represents a Spend offer signed by you, using the header and payload templates below. (See [Generating the JWT Token](api/README.md#generating-the-jwt-token) for more details about JWT structure).
+1.	Create a JWT that represents a Spend offer signed by you, using the header and payload templates below. (See [Generating the JWT Token](api_readme.md#generating-the-jwt-token) for more details about JWT structure).
 
 **JWT header:**
 ```javascript
@@ -91,7 +91,7 @@ Kin.shared.purchase(offerJWT: encodedNativeOffer) { jwtConfirmation, error in
 
 >**NOTES:**
 >* The above snippet is taken from the SDK Sample App, in which the JWT is created and signed by the client side for presentation purposes only. Do not use this method in production! In production, the JWT must be signed by the server, with a secure private key.
->* See [BlockchainException](api/COMMON_ERRORS.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](api/COMMON_ERRORS.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.
+>* See [BlockchainException](api_common_errors.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](api_common_errors.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.
 
 
 3.	Complete the purchase after you receive confirmation from the Kin Server that the funds were transferred successfully.

@@ -1,6 +1,6 @@
 ---
-hide_title: true
 title: Create Account
+hide_title: true
 ---
 
 ## Creating a User’s Kin Account
@@ -18,7 +18,7 @@ If that user already has a Kin account, the function only accesses the existing 
 
 **JWT mode:**
 
-(See [Building the JWT Token](api/README.md#generating-the-jwt-token) to learn how to build the JWT token.)
+(See [Building the JWT Token](api_readme.md#generating-the-jwt-token) to learn how to build the JWT token.)
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--iOS-->
