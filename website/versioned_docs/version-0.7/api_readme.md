@@ -130,7 +130,7 @@ Kin.shared.start(environment: Environment)
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 
->**NOTE** the above method does not perform any network calls and it's a synchronous method. If anything goes wrong during start, an error will be thrown.
+> **NOTE** the above method does not perform any network calls and it's a synchronous method. If anything goes wrong during start, an error will be thrown.
 
 ## Obtaining Authentication Credentials
 
@@ -191,6 +191,12 @@ keys and their IDs in advance).
 	"device_id": "device id" // A unique ID of the user's device
 }
 ```
+
+> **NOTE**  
+> The `user_id` property needs to be the same whenever making a request for the same user.  
+> Try to avoid sending the user id you have in your app, instead send a hash of it.
+> 
+> The `device_id` property should be as persistent as you can make it.  
 
 ## Primary APIs
 

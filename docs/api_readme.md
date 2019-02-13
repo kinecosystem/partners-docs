@@ -182,6 +182,12 @@ keys and their IDs in advance).
 }
 ```
 
+> **NOTE**  
+> The `user_id` property needs to be the same whenever making a request for the same user.  
+> Try to avoid sending the user id you have in your app, instead send a hash of it.
+> 
+> The `device_id` property should be as persistent as you can make it.  
+
 ## Primary APIs
 
 The following sections show how to implement some primary APIs using the Kin Ecosystem SDK.
