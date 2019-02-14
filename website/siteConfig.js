@@ -81,7 +81,7 @@ const siteConfig = {
 				page: null
 			};
 
-			md.renderer.rules.list_item_close = function(tokens, index) {
+			/*md.renderer.rules.list_item_close = function(tokens, index) {
 				const current = tokens[index];
 
 				if (state.page !== "faq" || current.level !== 2) {
@@ -89,7 +89,7 @@ const siteConfig = {
 				}
 
 				return `</div>${ oldListItemCloseRule(...arguments) }`;
-			}
+			}*/
 
 			md.renderer.rules.heading_open = function(tokens, index) {
 				const current = tokens[index];

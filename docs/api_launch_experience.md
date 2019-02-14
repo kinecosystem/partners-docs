@@ -48,7 +48,8 @@ try? Kin.shared.launchEcosystem(from: self, at: .history)
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
->**NOTE:** The launchEcosystem function is not a one-time initialization function, you must call it each time you want to display a feature in KinEcosystem side.
+> **NOTE:**  
+> The launchEcosystem function is not a one-time initialization function, you must call it each time you want to display a feature in KinEcosystem side.
 
 #### Launch Backup And Restore Flows ###
 Optionally, your app can launch the Kin Backup or Restore flows and receive callbacks when user either completed successfully or failure.
@@ -68,7 +69,8 @@ try {
 * Step 2 - Add callbacks for backup or restore flow as you wish:
 Call `backupAndRestore.registerBackupCallback(callback)` or `backupAndRestore.registerRestoreCallback`
 
->**NOTE:** The callback registration should happen in `onCreate` for the cases of activity restart.
+>**NOTE:**  
+> The callback registration should happen in `onCreate` for the cases of activity restart.
 
 ```java
 // For Backup Flow

@@ -18,13 +18,15 @@ There are 3 ways you can retrieve the user’s balance:
 *To get the cached balance:*
 <!--DOCUSAURUS_CODE_TABS-->
 <!--iOS-->
->**NOTE:** This value may be nil if no known balance is present (for example, no account is associated yet)
+> **NOTE:**  
+> This value may be nil if no known balance is present (for example, no account is associated yet)
 
 ```swift
 Kin.shared.lastKnownBalance
 ```
 <!--Android-->
->**NOTE:** If no account was found for the user, you will receive a balance of 0 for that user.
+> **NOTE:**  
+> If no account was found for the user, you will receive a balance of 0 for that user.
 
 ```java
 try {
@@ -100,10 +102,9 @@ catch (TaskFailedException e) {
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> **NOTES:**  
-> The `Observer` object sends a first update with the last known balance, and then opens a connection to the blockchain network to receive subsequent live updates.
->     
-> Make sure to add balance observer only when required (for example when app UI need to show updated balance) and remove the observer as soon as possible to avoid keeping open network connection.  
+> **NOTES:**    
+> * The `Observer` object sends a first update with the last known balance, and then opens a connection to the blockchain network to receive subsequent live updates.     
+> * Make sure to add balance observer only when required (for example when app UI need to show updated balance) and remove the observer as soon as possible to avoid keeping open network connection.  
 
 When you're done listening to balance changes, remove the observer:
 

@@ -50,4 +50,5 @@ try? Kin.shared.launchEcosystem(from: self, at: .history)
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
->**NOTE:** The launchEcosystem function is not a one-time initialization function, you must call it each time you want to display a feature in KinEcosystem side.
+>**NOTE:**  
+> The launchEcosystem function is not a one-time initialization function, you must call it each time you want to display a feature in KinEcosystem side.

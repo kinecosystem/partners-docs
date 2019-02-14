@@ -11,7 +11,8 @@ The Kin Marketplace offer wall displays built-in offers, which are served by the
 
 You can also choose to display a banner for your custom offer in the Kin Marketplace offer wall. This serves as additional "real estate" in which to let the user know about custom offers within your app. When the user clicks on your custom Spend or Earn offer in the Kin Marketplace, your app will be notified, and then you can continues to manage the offer with your own loging and UX/UI flow.
 
->**NOTE:** You will need to actively launch the Kin Marketplace offer wall so your user can see the offers you added to it. See [Displaying the Kin Marketplace Offer Wall](api_launch_experience.md) for more details.
+> **NOTE:**  
+> You will need to actively launch the Kin Marketplace offer wall so your user can see the offers you added to it. See [Displaying the Kin Marketplace Offer Wall](api_launch_experience.md) for more details.
 
 *To add a custom Spend or Earn offer to the Kin Marketplace:*
 
@@ -28,7 +29,8 @@ let offer = NativeOffer(id: "offer id", // OfferId must be a UUID
                         offerType: .spend, // or .earn
                         isModal: true)
 ```
->**NOTE:** on iOS setting a native offer's `isModal` property to true means that when a user taps on the native offer, the marketplace will first close (dismiss) before invoking the native offer's handler, if set. The default value is false.
+> **NOTE:**  
+> On iOS setting a native offer's `isModal` property to true means that when a user taps on the native offer, the marketplace will first close (dismiss) before invoking the native offer's handler, if set. The default value is false.
 
 
 <!--Android-->
@@ -110,9 +112,10 @@ NativeOffer nativeOffer =
 3.	Add the native offer you created in the following way:
 
 
->**NOTE:** Each new offer is added as the first offer in Spend/Earn Offers list the Marketplace displays.
-On Android, Parameter `dismissOnTap` determines if the Marketplace needs to be dismissed on tap.
-Adding the same offer twice will update the existing one.
+> **NOTES:**  
+> * Each new offer is added as the first offer in Spend/Earn Offers list the Marketplace displays.
+> * On Android, Parameter `dismissOnTap` determines if the Marketplace needs to be dismissed on tap.
+> * Adding the same offer twice will update the existing one.
 <!--DOCUSAURUS_CODE_TABS-->
 <!--iOS-->
 ```swift

@@ -11,7 +11,6 @@ A custom Spend offer allows your users to unlock unique spend opportunities that
 
 *To create a custom Spend offer:*
 
-
 ### Requesting purchase Payment for a Custom Spend Offer
 
 *To request payment for a custom Spend offer:*
@@ -92,9 +91,8 @@ Kin.shared.purchase(offerJWT: encodedNativeOffer) { jwtConfirmation, error in
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 > **NOTES:**  
-> The above snippet is taken from the SDK Sample App, in which the JWT is created and signed by the client side for presentation purposes only. Do not use this method in production! In production, the JWT must be signed by the server, with a secure private key.  
-> 
-> See [BlockchainException](api_common_errors.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](api_common_errors.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.  
+> * The above snippet is taken from the SDK Sample App, in which the JWT is created and signed by the client side for presentation purposes only. Do not use this method in production! In production, the JWT must be signed by the server, with a secure private key.
+> * See [BlockchainException](api_common_errors.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](api_common_errors.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.  
 
 
 3. Complete the purchase after you receive confirmation from the Kin Server that the funds were transferred successfully.

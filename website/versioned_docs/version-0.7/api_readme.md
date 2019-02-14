@@ -35,12 +35,10 @@ dependencies {
 }
 ```
 
-> **NOTE:**   
-> The kin-ecosystem-android-sdk arr is tested on Android OS versions 4.4 (API level 19) and above.  
->    
-> Some functionality such as observing balance updates will not be supported on lower OS versions.  
-> 
-> If your app supports lower OS versions (minSdkVersion < 19) we recommend to only enable Kin integration for users with version 4.4 and above.  
+> **NOTES:**   
+> * The kin-ecosystem-android-sdk arr is tested on Android OS versions 4.4 (API level 19) and above.
+> * Some functionality such as observing balance updates will not be supported on lower OS versions.
+> * If your app supports lower OS versions (minSdkVersion < 19) we recommend to only enable Kin integration for users with version 4.4 and above.  
 
 <!--iOS-->
 The fastest way to get started with the sdk is with cocoapods (>= 1.4.0).
@@ -49,7 +47,8 @@ The fastest way to get started with the sdk is with cocoapods (>= 1.4.0).
 pod 'KinEcosystem', '0.6.3'
 ```
 
-> **NOTE** for apps using swift 3.2: the pod installation will change your project's swift version target to 4.0</br>
+> **NOTE:**  
+> For apps using swift 3.2: the pod installation will change your project's swift version target to 4.0.
 > This is because the sdk uses swift 4.0, and cocoapods force the pod's swift version on the project. For now, you can manually change your project's swift version in the build setting. A better solution will be available soon.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -58,7 +57,8 @@ pod 'KinEcosystem', '0.6.3'
 
 The Kin Ecosystem SDK Sample App demonstrates how to perform common workflows such as creating a user account and creating Spend and Earn offers. You can build the Sample App from the `app` module in the Kin Ecosystem SDK Git repository. We recommend building and running the Sample App as a good way to get started with the Kin Ecosystem SDK and familiarize yourself with its functions.
 
-> **NOTE:** The Sample App is for demonstration only, and should not be used for any other purpose.
+> **NOTE:**  
+> The Sample App is for demonstration only, and should not be used for any other purpose.
 
 The Sample App is pre-configured with the default credentials `appId='test'` and
 `jwt private key`. These credentials can be used for integration testing in any app, but authorization will fail if you attempt to use them in a production environment.
@@ -75,13 +75,15 @@ RS512_PRIVATE_KEY="YOUR_RS512_PRIVATE_KEY" // Used only for sample app, for prod
 ```
 <!--iOS-->
 
-> **NOTE:** Apps using the sdk must include a NSPhotoLibraryUsageDescription key entry in the info.plist file. This is becuase the sdk may ask to use the photos library when restoring a backed up wallet. For example, you can use something like:</br>
-"_Photo library access is required for backup and restore of your kin wallet_"
+> **NOTE:**   
+> Apps using the sdk must include a NSPhotoLibraryUsageDescription key entry in the info.plist file. This is becuase the sdk may ask to use the photos library when restoring a backed up wallet. For example, you can use something like:  
+> "_Photo library access is required for backup and restore of your kin wallet_"
 
 If your app already includes such an entry, you do not need to change anything.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
-> **NOTE:** For production, create the JWT by server side with ES256 signature.
+> **NOTE:**  
+> For production, create the JWT by server side with ES256 signature.
 
 ## Beta and Production Environments
 
@@ -110,9 +112,8 @@ And for Production use: `@string/kinecosystem_environment_production` as value.
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 > **NOTES:**  
-> When working with the Beta environment, you can only register up to 1000 users. An attempt to register additional users will result in an error.  
-> 
-> In order to switch between environments, you’ll need to clear the application cache.
+> * When working with the Beta environment, you can only register up to 1000 users. An attempt to register additional users will result in an error.  
+> * In order to switch between environments, you’ll need to clear the application cache.
 
 ## Initialize The SDK
 Kin Ecosystem SDK must be initialized before any interaction with the SDK, in order to do that you should first call:  
@@ -129,8 +130,8 @@ Kin.shared.start(environment: Environment)
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-
-> **NOTE** the above method does not perform any network calls and it's a synchronous method. If anything goes wrong during start, an error will be thrown.
+> **NOTE:**  
+> The above method does not perform any network calls and it's a synchronous method. If anything goes wrong during start, an error will be thrown.
 
 ## Obtaining Authentication Credentials
 
@@ -192,11 +193,10 @@ keys and their IDs in advance).
 }
 ```
 
-> **NOTE**  
-> The `user_id` property needs to be the same whenever making a request for the same user.  
+> **NOTES:**  
+> * The `user_id` property needs to be the same whenever making a request for the same user.  
 > Try to avoid sending the user id you have in your app, instead send a hash of it.
-> 
-> The `device_id` property should be as persistent as you can make it.  
+> * The `device_id` property should be as persistent as you can make it.  
 
 ## Primary APIs
 

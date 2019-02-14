@@ -49,9 +49,8 @@ Once the user has completed the task associated with the Earn offer, you request
 2. Call `requestPayment` (see code example below). The Ecosystem Server credits the user account (assuming the app’s account has sufficient funds).
 
 > **NOTES:**    
-> The following snippet is taken from the SDK Sample App, in which the JWT is created and signed by the client side for presentation purposes only. Do not use this method in production! In production, the JWT must be signed by the server, with a secure private key.  
-> 
-> See [BlockchainException](api_common_errors.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](api_common_errors.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.  
+> * The following snippet is taken from the SDK Sample App, in which the JWT is created and signed by the client side for presentation purposes only. Do not use this method in production! In production, the JWT must be signed by the server, with a secure private key.
+> * See [BlockchainException](api_common_errors.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](api_common_errors.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.  
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Android-->
@@ -75,7 +74,8 @@ catch (ClientException exception) {
     exception.printStackTrace();
 }
 ```
-> **NOTE:** For now, on Android, custom Earn offers must be displayed and managed by your app, and cannot be added to the Kin Marketplace (unlike custom Spend offers).
+> **NOTE:**  
+> For now, on Android, custom Earn offers must be displayed and managed by your app, and cannot be added to the Kin Marketplace (unlike custom Spend offers).
 
 <!--iOS-->
 ```swift

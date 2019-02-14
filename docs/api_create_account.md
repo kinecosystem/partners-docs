@@ -7,8 +7,8 @@ hide_title: true
 
 If your app presents Kin Spend and Earn offers to your users, then each user needs a Kin wallet and account in order to take advantage of those offers.
 
->**NOTE:** Kin Ecosystem SDK must be initialized before any interaction with the SDK, in order to do that you should call `Kin.start(…)` first.
-
+> **NOTE:**  
+> Kin Ecosystem SDK must be initialized before any interaction with the SDK, in order to do that you should call `Kin.start(…)` first.
 
 #### Login
 *To create or access a user’s Kin account:*
@@ -31,7 +31,8 @@ try Kin.shared.login(jwt: encodedJWT) { error in
     print("login failed. Error: \(error.localizedDescription)")
 }
 ```
->**NOTE** On iOS, You can immidietly call other functions after calling login. Any login or wallet creation/retrieval operations will be performed first and your calls will queue until these are done. The 'KinLoginCallback' is an optional parameter allowing you to know when login is complete, in case you need it.
+> **NOTE:**  
+> On iOS, You can immediately call other functions after calling login. Any login or wallet creation/retrieval operations will be performed first and your calls will queue until these are done. The 'KinLoginCallback' is an optional parameter allowing you to know when login is complete, in case you need it.
 
 <!--Android-->
 ```java
@@ -55,7 +56,6 @@ try {
 
 #### Logout
 *To release access from a user’s Kin account or switch account:*
-
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--iOS-->
