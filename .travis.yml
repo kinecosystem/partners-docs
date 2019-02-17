@@ -17,6 +17,7 @@ branches:
 
 deploy:
   provider: script
+  skip_cleanup: true
   script: cd website && aws s3 sync 'build/partners\ sdk' $BUCKET_URI --acl public-read && aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' && cd -
   on:
     branch: master
