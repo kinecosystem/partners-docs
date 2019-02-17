@@ -6,7 +6,7 @@ node_js:
 
 before_script:
   - pip install --user awscli
-  - cd website && npm run build
+  - cd website && npm install && npm run build
 
 script:
 
