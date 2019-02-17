@@ -1,0 +1,21 @@
+language: node_js
+sudo: required
+
+node_js:
+  - "10"
+
+before_script:
+  - pip install --user awscli
+  - cd website && npm run build
+
+script:
+
+branches:
+  only:
+    - master
+
+deploy:
+  provider: script
+  script: cd website && aws s3 sync build/partners\ sdk $BUCKET_URI --acl public-read && aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*" 
+  on:
+    branch: master
