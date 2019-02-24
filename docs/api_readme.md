@@ -38,7 +38,7 @@ dependencies {
 <!--iOS-->
 The fastest way to get started with the sdk is with cocoapods (>= 1.4.0).
 ```
-pod 'KinEcosystem', '0.6.3'
+pod 'KinEcosystem', '0.8.0'
 ```
 
 > **NOTE:**  
@@ -59,7 +59,7 @@ The Sample App is pre-configured with the default credentials `appId='test'` and
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Android-->
-*To override the default credential settings:* 
+*To override the default credential settings:*
 
 Create or edit a local `credential.properties` file in the `app` module directory and add the lines below, using the `appId` and `apiKey` values you received.
 
@@ -98,7 +98,7 @@ For Beta: ("beta")
     <meta-data android:name="com.kin.ecosystem.sdk.EnvironmentName" android:value="@string/kinecosystem_environment_beta"/>
 </application>
 ```
-And for Production use: `@string/kinecosystem_environment_production` as value. 
+And for Production use: `@string/kinecosystem_environment_production` as value.
 
 <!--iOS-->
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -188,7 +188,7 @@ keys and their IDs in advance).
 > **NOTES:**  
 > * The `user_id` property needs to be the same whenever making a request for the same user.  
 > Try to avoid sending the user id you have in your app, instead send a hash of it.
-> * The `device_id` property should be as persistent as you can make it. 
+> * The `device_id` property should be as persistent as you can make it.
 
 ## Primary APIs
 

@@ -1,6 +1,8 @@
 ---
 title: Miscellaneous
 hide_title: true
+id: version-0.8-api_misc
+original_id: api_misc
 ---
 
 ## Checking if a User Has a Kin Account
