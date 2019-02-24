@@ -91,3 +91,26 @@ Kin.shared.userStats { [weak self] stats, error in
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+### Enabling the MoveKin Module ###
+
+MoveKin is a module that allows Ecosystem partner app users to receive Kin from other apps such as Kinit.
+To enable MoveKin in your app:
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Android-->
+On Android, MoveKin is enabled by default.
+<!--iOS-->
+Partners that wish to integrate MoveKin need to have a URL scheme provided by the Ecosystem. Once that's obtained:
+- in your app's Info.plist, [add the provided URL scheme](https://developer.apple.com/documentation/uikit/core_app/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Select the "editor" role for your app.
+- in you app's delegate, add (or change) the following:
+```swift
+func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    if Kin.shared.canHandleURL(url) {
+        Kin.shared.handleURL(url, options: options)
+        return true
+    }
+    // handle other urls if needed
+    return false
+}
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
