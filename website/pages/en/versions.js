@@ -13,10 +13,10 @@ const Container = CompLibrary.Container;
 
 const CWD = process.cwd();
 
-const versions = require(`${CWD}/versions.json`);
+const versions = require(`${ CWD }/versions.json`);
 const releaseNotes = {
   "0.8": {
-    "ios": null,
+    "ios": "https://github.com/kinecosystem/kin-ecosystem-ios-sdk/releases/tag/0.8.0",
     "android": "https://github.com/kinecosystem/kin-ecosystem-android-sdk/releases/tag/0.8.0"
   },
   "0.7": {
