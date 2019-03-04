@@ -3,17 +3,19 @@ title: JWT Service
 hide_title: true
 ---
 
-# Kin ecosystem JWT service
+# Kin Ecosystem JWT Service
 
-A helper tool to create/sign [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token).  
-Tokens are needed, in some cases, when interacting with our [marketplace server](https://github.com/kinfoundation/marketplace-server), 
+A helper tool to create/sign [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token).
+Tokens are needed, in some cases, when interacting with our [marketplace server](https://github.com/kinfoundation/marketplace-server),
 and as a result of that, the tokens are also needed when working with our SDKs.
 
-In order to make the first integration with our SDKs simpler we supply this service, which can easily be installed and used 
+In order to make the first integration with our SDKs simpler we supply this service, which can easily be installed and used
 by anyone who wants to try integrating Kin into their app.
 
+> **NOTE:** This service is provided as an example. If you use the service we recommend securing it behind a user authentication proxy. You should *NOT* leave this endpoint public!
+
 ### Keys
-The repo contains private/public RSA keys and private/public stellar keys.  
+The repo contains private/public RSA keys and private/public stellar keys.
 These keys are for testing porpuses only.
 
 ### Install
@@ -30,7 +32,7 @@ jwt-service
 The service supports 4 endpoints:
 
 #### offers
-Returns a collection of made up offers:  
+Returns a collection of made up offers:
 `GET SERVICE_URL/offers`
 
 Result:
@@ -63,7 +65,7 @@ Result:
 ```
 
 #### earn
-Returns a token which can be used to create an earn order:  
+Returns a token which can be used to create an earn order:
 `GET SERVICE_URL/earn/token?user_id=userA&device_id=deviceA&offer_id=offer1&nonce=MyUniqueNonce`
 
 Result:
