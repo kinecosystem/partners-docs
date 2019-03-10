@@ -7,14 +7,10 @@ New DS added by partnership team.
 
 DS should receive the following from Ecosystem team:
 
-
-
 *   **app_id** - used internally by the SDK to colour transactions (later KRE) and as the JWT issuer for native flows
 *   **Kin JWT signing keys** - used by DS to verify Kin JWTs (available [here](https://api.kinmarketplace.com/v1/config))
 
 Ecosystem team should receive the following from DS:
-
-
 
 *   **DS JWT signing keys** - used by Kin to verify DS JWTs ([key generation instructions](https://github.com/kinecosystem/marketplace-server/wiki/Creating-ES256-Keys))
 
@@ -23,9 +19,7 @@ Ecosystem team should receive the following from DS:
 
 For large scale on boarding, review the [rollout guidelines](https://docs.google.com/document/d/1V45dTj3319rCLhU7dyZooGfVSPcPrHfYrsnuAOtSODk/edit).
 
-
 # Register
-
 
 ## With JWT (requires ES256 keys from DS)
 
@@ -96,3 +90,49 @@ Similar to native spend, without predefining, the DS needs to encode the require
 The client SDK provides utility functions to display native offers in the marketplace.
 
 Native offers will appear before any offers provided by Kin.
+
+# Start Building with Kin's Partner SDK
+
+## Client SDKs and Sample apps
+* https://github.com/kinecosystem/kin-ecosystem-ios-sample-app
+* https://github.com/kinecosystem/kin-ecosystem-ios-sdk
+* https://github.com/kinecosystem/kin-ecosystem-android-sdk (sample app bundled in repo)
+<a href="https://partners.kinecosystem.com/docs/api/api.html"><img src="https://partners.kinecosystem.com/img/documentation-button2x.png" width=300 height=84 alt="Documentation"/></a>
+
+## App Identifier (app_id)
+Each app in the ecosystem has an app_id. For example Kik has `kik`, Test app has `test`, Sample app has `smpl`. The app_id is used in 2 spots.
+1. as the `issuer` of the JWT messages that come from your server
+1. as an identifier attached to each transaction on the blockchain. Will be used in the future for the rewards engine.
+We will provide the app_id to the partner.
+
+## JWT public keys and exchange:
+Our public keys are served as part of the configuration endpoint of the api:
+production:
+https://api.kinmarketplace.com/v1/config
+beta:
+https://api.kinecosystembeta.com/v1/config
+
+We prefer using a single JWT algorithm type as it’s more secure to limit the options of the algorithm.
+The keys should all be using the `es256` algorithm. An example of how to create them:
+https://github.com/kinecosystem/marketplace-server/wiki/Creating-ES256-Keys
+
+What we need from the Partner is a list of keys (preferably 5 or more) so you can rotate them. For each key we need a `kid` (key id) that will be declared in the header of the JWT message so we know which key was used to sign it.
+
+you can see the above `/v1/config` endpoints as an example for our own keys, or here:
+```
+KID: "es256_0000" KEY: "----- PUBLIC KEY ----- SOME DATA0 -----"
+KID: "es256_0001" KEY: "----- PUBLIC KEY ----- SOME DATA1 -----"
+KID: "es256_0002" KEY: "----- PUBLIC KEY ----- SOME DATA2 -----"
+```
+
+A **register** message payload for example (viewable on jwt.io) has the following header:
+```
+{
+  "alg": "ES256",
+  "typ": "JWT",
+  "kid": "some_id"
+}
+```
+
+which states that the key id used is `some_id`.
+
