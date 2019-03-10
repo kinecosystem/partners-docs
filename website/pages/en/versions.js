@@ -17,7 +17,7 @@ const versions = require(`${ CWD }/versions.json`);
 const releaseNotes = {
   "0.8": {
     "ios": "https://github.com/kinecosystem/kin-ecosystem-ios-sdk/releases/tag/0.8.1",
-    "android": "https://github.com/kinecosystem/kin-ecosystem-android-sdk/releases/tag/0.8.0"
+    "android": "https://github.com/kinecosystem/kin-ecosystem-android-sdk/releases/tag/0.8.1"
   },
   "0.7": {
     "ios": "https://github.com/kinecosystem/kin-ecosystem-ios-sdk/releases/tag/0.6.4",
