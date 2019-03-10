@@ -1,6 +1,8 @@
 ---
 title: Intro
 hide_title: true
+id: version-0.8-api_readme
+original_id: api_readme
 ---
 
 # Kin Ecosystem SDK
