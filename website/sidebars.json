@@ -1,6 +1,9 @@
 {
 	"docs": {
 		"Guidelines": [
+			"guidelines_onboarding",
+			"guidelines_create_jwt_keys",
+			"guidelines_environments",
 			"guidelines_rollout",
 			"guidelines_sybil",
 			"guidelines_brand"

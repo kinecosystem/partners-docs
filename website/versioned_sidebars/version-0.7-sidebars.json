@@ -1,6 +1,9 @@
 {
   "version-0.7-docs": {
     "Guidelines": [
+      "version-0.7-guidelines_onboarding",
+      "version-0.7-guidelines_create_jwt_keys",
+      "version-0.7-guidelines_environments",
       "version-0.7-guidelines_rollout",
       "version-0.7-guidelines_sybil",
       "version-0.7-guidelines_brand"
