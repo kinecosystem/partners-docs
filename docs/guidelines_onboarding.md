@@ -1,4 +1,9 @@
-# Digital Service On Boarding
+---
+title: Onboarding
+hide_title: true
+---
+
+# Digital Service Onboarding
 
 ## Signup Process
 
@@ -65,7 +70,8 @@ Currently Kin holds a separate native spend wallet for each DS.
 
 All native spent Kin ends up in that wallet.
 
-**<span style="text-decoration:underline;">NOTE:</span>** In the future we want the keys to be held by the DS. The DS will generate multiple key pairs and is responsible to securely hold the private keys. The target key will be defined in the spend JWT by the DS, giving it full control over where funds are transferred to.
+> **NOTE:**
+> In the future we want the keys to be held by the DS. The DS will generate multiple key pairs and is responsible to securely hold the private keys. The target key will be defined in the spend JWT by the DS, giving it full control over where funds are transferred to.
 
 
 #### Native Earn
@@ -76,7 +82,8 @@ Earns are protected with a rate limit per application (minute, hour rates), per 
 
 As we serve the earn offers, and trigger a payment and provide payment-confirmations we also hold the wallets with the funds.
 
-**<span style="text-decoration:underline;">NOTE:</span>** In the future we want the keys to be held by the DS. Kin holds the keys, but separates funds pre DS. On some cadence, the DS will send Kin from their own wallet to the operational hot wallet or a semi-operational warm wallet held by Kin. When the warm wallet is running low on funds we could update the DS to top it up.
+> **NOTE:**
+> In the future we want the keys to be held by the DS. Kin holds the keys, but separates funds pre DS. On some cadence, the DS will send Kin from their own wallet to the operational hot wallet or a semi-operational warm wallet held by Kin. When the warm wallet is running low on funds we could update the DS to top it up.
 
 
 #### P2P
