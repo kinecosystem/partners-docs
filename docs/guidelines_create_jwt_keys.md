@@ -1,3 +1,8 @@
+---
+title: JWT Keys
+hide_title: true
+---
+
 # JWT Keys
 
 For the initial partner integration with our SDK and the ability to use your own app identifer with Kin's production and beta servers, you should provide a list of ES256 keys.
