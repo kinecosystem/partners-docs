@@ -1,7 +1,6 @@
 # Digital Service On Boarding
 
-
-# Signup Process
+## Signup Process
 
 New DS added by partnership team.
 
@@ -15,13 +14,13 @@ Ecosystem team should receive the following from DS:
 *   **DS JWT signing keys** - used by Kin to verify DS JWTs ([key generation instructions](https://partners.kinecosystem.com/docs/guidelines/create_jwt_keys.html))
 
 
-# Rollout
+## Rollout
 
 For large scale on boarding, review the [rollout guidelines](https://docs.google.com/document/d/1V45dTj3319rCLhU7dyZooGfVSPcPrHfYrsnuAOtSODk/edit).
 
-# Register
+## Register
 
-## With JWT (requires ES256 keys from DS)
+### With JWT (requires ES256 keys from DS)
 
 To use JWT register, the DS server has to implement a JWT signing service (example on [https://github.com/kinecosystem/jwt-service](https://github.com/kinecosystem/jwt-service)).
 
@@ -30,17 +29,17 @@ The JWT service will sign register JWT and pass it to the client, which will pas
 The JWT service has to be protected by the DS with an authentication scheme so it can't be accessed by unauthorized requests ([guidelines](https://docs.google.com/document/d/1VyjHzWseuLq4MM7dQz_FxI55m0GnKG5dgjQvKHV_PJE/edit)).
 
 
-# Marketplace Offers
+## Marketplace Offers
 
 Part of the partner's contract, Kin ecosystem provides earn opportunities in the form of polls, quizzes and a tutorial. Polls and quizzes are around 21 Kin and the tutorial is 130 Kin.
 
 The DS can choose to have a subset of the offers or choose to create a custom tutorial.
 
 
-# Native Offers
+## Native Offers
 
 
-## Configuration
+### Configuration
 
 For native offers, JWT signing keys need to be exchanged.
 
@@ -49,7 +48,7 @@ The DS should provide a list of [ES256 keys](https://partners.kinecosystem.com/d
 Kin will provide the list of [ES256 keys](https://api.kinmarketplace.com/v1/config) and their ids that will be used to sign **payment_confirmation** JWTs.
 
 
-## Native Offers
+### Native Offers
 
 For native offers the DS doesn't need to predefine anything.
 
@@ -60,7 +59,7 @@ Caps/ Limits are controlled by the DS using a **nonce** in the earn/spend JWT. A
 When an order for a native offer is complete, Kin generates the **payment_confirmation** JWT which includes the necessary information needed to retrace the payment on the blockchain to enable auditing by the digital service or legal teams.
 
 
-### Native Spend
+#### Native Spend
 
 Currently Kin holds a separate native spend wallet for each DS.
 
@@ -69,7 +68,7 @@ All native spent Kin ends up in that wallet.
 **<span style="text-decoration:underline;">NOTE:</span>** In the future we want the keys to be held by the DS. The DS will generate multiple key pairs and is responsible to securely hold the private keys. The target key will be defined in the spend JWT by the DS, giving it full control over where funds are transferred to.
 
 
-### Native Earn
+#### Native Earn
 
 Currently Kin holds a single wallet shared across all DS for both marketplace and native earn.
 
@@ -80,32 +79,32 @@ As we serve the earn offers, and trigger a payment and provide payment-confirmat
 **<span style="text-decoration:underline;">NOTE:</span>** In the future we want the keys to be held by the DS. Kin holds the keys, but separates funds pre DS. On some cadence, the DS will send Kin from their own wallet to the operational hot wallet or a semi-operational warm wallet held by Kin. When the warm wallet is running low on funds we could update the DS to top it up.
 
 
-### P2P
+#### P2P
 
 Similar to native spend, without predefining, the DS needs to encode the required data into a JWT, with the attached. The **pay_to_user** JWT includes the sender and receiver user ids, and a title, description for each sender and recipient, in addition to **offer_id** and amount.
 
 
-## Injecting Native Offers into the Marketplace
+### Injecting Native Offers into the Marketplace
 
 The client SDK provides utility functions to display native offers in the marketplace.
 
 Native offers will appear before any offers provided by Kin.
 
-# Start Building with Kin's Partner SDK
+## Start Building with Kin's Partner SDK
 
-## Client SDKs and Sample apps
+### Client SDKs and Sample apps
 * https://github.com/kinecosystem/kin-ecosystem-ios-sample-app
 * https://github.com/kinecosystem/kin-ecosystem-ios-sdk
 * https://github.com/kinecosystem/kin-ecosystem-android-sdk (sample app bundled in repo)
 <a href="https://partners.kinecosystem.com/docs/api/api.html"><img src="https://partners.kinecosystem.com/img/documentation-button2x.png" width=300 height=84 alt="Documentation"/></a>
 
-## App Identifier (app_id)
+### App Identifier (app_id)
 Each app in the ecosystem has an app_id. For example Kik has `kik`, Test app has `test`, Sample app has `smpl`. The app_id is used in 2 spots.
 1. as the `issuer` of the JWT messages that come from your server
 1. as an identifier attached to each transaction on the blockchain. Will be used in the future for the rewards engine.
 We will provide the app_id to the partner.
 
-## JWT public keys and exchange:
+### JWT public keys and exchange:
 Our public keys are served as part of the configuration endpoint of the api:
 production:
 https://api.kinmarketplace.com/v1/config
