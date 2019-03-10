@@ -12,7 +12,7 @@ DS should receive the following from Ecosystem team:
 
 Ecosystem team should receive the following from DS:
 
-*   **DS JWT signing keys** - used by Kin to verify DS JWTs ([key generation instructions](https://github.com/kinecosystem/marketplace-server/wiki/Creating-ES256-Keys))
+*   **DS JWT signing keys** - used by Kin to verify DS JWTs ([key generation instructions](https://partners.kinecosystem.com/docs/guidelines/create_jwt_keys.html))
 
 
 # Rollout
@@ -44,7 +44,7 @@ The DS can choose to have a subset of the offers or choose to create a custom tu
 
 For native offers, JWT signing keys need to be exchanged.
 
-The DS should provide a list of [ES256 keys](https://github.com/kinecosystem/marketplace-server/wiki/Creating-ES256-Keys) and their ids that will be used to sign **earn/spend/pay_to_user** JWTs.
+The DS should provide a list of [ES256 keys](https://partners.kinecosystem.com/docs/guidelines/create_jwt_keys.html) and their ids that will be used to sign **earn/spend/pay_to_user** JWTs.
 
 Kin will provide the list of [ES256 keys](https://api.kinmarketplace.com/v1/config) and their ids that will be used to sign **payment_confirmation** JWTs.
 
@@ -114,7 +114,7 @@ https://api.kinecosystembeta.com/v1/config
 
 We prefer using a single JWT algorithm type as it’s more secure to limit the options of the algorithm.
 The keys should all be using the `es256` algorithm. An example of how to create them:
-https://github.com/kinecosystem/marketplace-server/wiki/Creating-ES256-Keys
+https://partners.kinecosystem.com/docs/guidelines/create_jwt_keys.html
 
 What we need from the Partner is a list of keys (preferably 5 or more) so you can rotate them. For each key we need a `kid` (key id) that will be declared in the header of the JWT message so we know which key was used to sign it.
 
