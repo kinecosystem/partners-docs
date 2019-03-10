@@ -1,7 +1,7 @@
 ---
+title: Brand Guidelines
 hide_title: true
 id: version-0.7-guidelines_brand
-title: Brand Guidelines
 original_id: guidelines_brand
 ---
 

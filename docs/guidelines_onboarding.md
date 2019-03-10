@@ -16,12 +16,12 @@ DS should receive the following from Ecosystem team:
 
 Ecosystem team should receive the following from DS:
 
-*   **DS JWT signing keys** - used by Kin to verify DS JWTs ([key generation instructions](https://partners.kinecosystem.com/docs/guidelines/create_jwt_keys.html))
+*   **DS JWT signing keys** - used by Kin to verify DS JWTs ([key generation instructions](guidelines_create_jwt_keys.md))
 
 
 ## Rollout
 
-For large scale on boarding, review the [rollout guidelines](https://docs.google.com/document/d/1V45dTj3319rCLhU7dyZooGfVSPcPrHfYrsnuAOtSODk/edit).
+For large scale on boarding, review the [rollout guidelines](guidelines_rollout.md).
 
 ## Register
 
@@ -31,8 +31,7 @@ To use JWT register, the DS server has to implement a JWT signing service (examp
 
 The JWT service will sign register JWT and pass it to the client, which will pass it into the SDK.
 
-The JWT service has to be protected by the DS with an authentication scheme so it can't be accessed by unauthorized requests ([guidelines](https://docs.google.com/document/d/1VyjHzWseuLq4MM7dQz_FxI55m0GnKG5dgjQvKHV_PJE/edit)).
-
+The JWT service has to be protected by the DS with an authentication scheme so it can't be accessed by unauthorized requests ([guidelines](guidelines_sybil.md)).
 
 ## Marketplace Offers
 
@@ -48,7 +47,7 @@ The DS can choose to have a subset of the offers or choose to create a custom tu
 
 For native offers, JWT signing keys need to be exchanged.
 
-The DS should provide a list of [ES256 keys](https://partners.kinecosystem.com/docs/guidelines/create_jwt_keys.html) and their ids that will be used to sign **earn/spend/pay_to_user** JWTs.
+The DS should provide a list of [ES256 keys](guidelines_create_jwt_keys.md) and their ids that will be used to sign **earn/spend/pay_to_user** JWTs.
 
 Kin will provide the list of [ES256 keys](https://api.kinmarketplace.com/v1/config) and their ids that will be used to sign **payment_confirmation** JWTs.
 
