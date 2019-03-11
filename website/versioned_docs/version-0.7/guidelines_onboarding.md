@@ -84,7 +84,7 @@ Earns are protected with a rate limit per application (minute, hour rates), per 
 As we serve the earn offers, and trigger a payment and provide payment-confirmations we also hold the wallets with the funds.
 
 > **NOTE:**
-> In the future we want the keys to be held by the DS. Kin holds the keys, but separates funds pre DS. On some cadence, the DS will send Kin from their own wallet to the operational hot wallet or a semi-operational warm wallet held by Kin. When the warm wallet is running low on funds we could update the DS to top it up.
+> In the future we want the keys to be held by the DS. Kin holds the keys, but separates funds per DS. On some cadence, the DS will send Kin from their own wallet to the operational hot wallet or a semi-operational warm wallet held by Kin. When the warm wallet is running low on funds we could update the DS to top it up.
 
 
 #### P2P
