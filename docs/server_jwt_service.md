@@ -15,7 +15,8 @@ and as a result of that, the tokens are also needed when working with our SDKs.
 In order to make the first integration with our SDKs simpler we supply this service, which can easily be installed and used 
 by anyone who wants to try integrating Kin into their app.
 
-> **NOTE:** This service is provided as a tool for development time to ease intergration with the SDK and should not under any circumstances be used in production. Any production solution MUST adhere to basic security best practices and encompass an authentication process limiting JWT serving to authenticated users/clients ONLY.
+> **NOTE:** This service is provided as a tool for development time to ease intergration with the SDK and should not under any circumstances be used in production.  
+> Any production solution MUST adhere to basic security best practices and encompass an authentication process limiting JWT serving to authenticated users/clients ONLY.
 
 ### Keys
 The repo contains private/public RSA keys and private/public stellar keys.  
