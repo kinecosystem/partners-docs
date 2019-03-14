@@ -6,7 +6,8 @@
 			"guidelines_environments",
 			"guidelines_rollout",
 			"guidelines_sybil",
-			"guidelines_brand"
+			"guidelines_brand",
+			"guidelines_migration_faq"
 		],
 		"SDK API": [
 			"api_readme",
