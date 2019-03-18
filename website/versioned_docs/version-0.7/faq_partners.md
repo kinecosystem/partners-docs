@@ -7,6 +7,8 @@ original_id: faq_partners
 
 # Partners FAQ
 
+We’re happy to inform you that Kin is transitioning to its’ own dedicated blockchain. A new SDK will provide the security, stability, speed and scale necessary to support consumer applications, each with millions of users in mind.  
+
 * #### What is Kin?
   Kin is a new cryptocurrency created by one of the world’s most popular messaging apps, Kik.
   Based on the idea that when we all work together everybody wins, Kin has created a way for your favorite sites, services, and brands to get rewarded for creating awesome user experiences rather than using ads, charging for subscriptions, or selling your personal information. 
