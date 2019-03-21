@@ -7,6 +7,8 @@ original_id: guidelines_migration_faq
 
 # Kin Migration FAQ
 
+We’re happy to inform you that Kin is transitioning to its own dedicated blockchain. A new SDK will provide the security, stability, speed and scale necessary to support consumer applications, each with millions of users in mind.
+
 ## Technical
 
 #### Does it mean I need the new SDK? What does this mean for my users?
