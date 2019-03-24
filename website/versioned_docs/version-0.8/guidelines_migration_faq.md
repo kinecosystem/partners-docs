@@ -12,7 +12,8 @@ We’re happy to inform you that Kin is transitioning to its own dedicated block
 ## Technical
 
 #### Does it mean I need the new SDK? What does this mean for my users?
-The migration process will occur in the background once the KIN entrypoint (Kin.Start()) is called. The migration process itself takes ~15 seconds during which time the user is blocked from using SDK functions.
+Partners will need to update to the new SDK (delivered early/mid April). The SDK will include a migration module. Users of an older SDK version will not be able to earn/spend more KIN until they upgrade their app to initiate the SDK that supports the new blockchain.
+Registering a new user on an older SDK version will fail. 
 
 #### How long will it take for a user to migrate (what's the user experience)?
 The migration process will occur in the background once the KIN entrypoint (Kin.Start()) is called. The migration process itself takes around 15 seconds during which the user is blocked from using SDK functions.
