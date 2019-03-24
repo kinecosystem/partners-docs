@@ -29,11 +29,6 @@ The flow is the same. However, there are different events and documentation avai
 #### What happens to new users that enter the app during and after the migration process? Do they need to go through migration?
 New users on the new blockchain don't go through migration. Once your app is set on the new blockchain, any new user that will engage with the app will only interact with the new blockchain. 
 
-#### Is there a way to tell if the user has migrated or not?
-On the Android SDK, call Kin.getKinSdkVersion() which returns KinSdkVersion, an enum. Possible values are OLD_KIN_SDK or NEW_KIN_SDK. These refer to the current blockchain and the new Kin blockchain respectively.
-
-On the iOS SDK you should check isMigrated function, The value is persistent and will remain across sessions unless the user removes and re-installs the app.
-
 #### Where in my user flow should I call Kin.start?
 Kin.start should be called early in your user's flow. The earlier you call it, the better the chance that the user would already be migrated before they start earning Kin in your application.
 
@@ -41,7 +36,7 @@ Kin.start should be called early in your user's flow. The earlier you call it, t
 The key pairs will be the same so users can still use the QR code (if they saved it) during their backup. We always recommend prompting your users to use the backup and restore functionalities.
 
 #### Does the server know the wallet status?
-Yes, the migration status of each wallet is kept both on the server and the blockchain.
+The server is aware of a wallet’s status by checking the blockchain.
 
 #### What happens to the user's transaction history?
 The marketplace transaction history is kept. If you've been using the paymentConfirmation to double check the existence of a transaction on the blockchain, you will have to start checking on the new blockchain. Old transactions will not be transferred between blockchains, making all users accounts on the blockchain seem new and without history.
