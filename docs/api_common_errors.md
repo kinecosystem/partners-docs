@@ -26,3 +26,4 @@ Represents an error originated with Kin blockchain, error code might be:
 * `ACCOUNT_ACTIVATION_FAILED` - Activating(Add Trustline with Kin) an account failed.
 * `INSUFFICIENT_KIN` - Not enough Kin balance to perform the operation.
 * `TRANSACTION_FAILED` - Transaction has failed.
+* `BLOCKCHAIN_ENDPOINT_CHANGED` - Migration needed. SDK of version 1.0.0 is needed to perform the migration. Any function can return this exception which will then trigger the migration of the current wallet. The user will have to retry his latest action after the migration completes.
