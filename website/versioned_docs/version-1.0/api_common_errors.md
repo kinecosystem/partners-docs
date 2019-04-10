@@ -1,6 +1,8 @@
 ---
 title: Errors
 hide_title: true
+id: version-1.0-api_common_errors
+original_id: api_common_errors
 ---
 
 ## Common Errors

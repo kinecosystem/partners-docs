@@ -1,6 +1,8 @@
 ---
 title: Native Earn
 hide_title: true
+id: version-1.0-api_native_earn
+original_id: api_native_earn
 ---
 
 ## Requesting Payment for a Custom Earn Offer

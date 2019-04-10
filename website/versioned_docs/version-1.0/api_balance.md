@@ -1,6 +1,8 @@
 ---
 title: Get Balance
 hide_title: true
+id: version-1.0-api_balance
+original_id: api_balance
 ---
 ## Methods of Getting Wallet Balance
 ### Getting an Account’s Balance ###
