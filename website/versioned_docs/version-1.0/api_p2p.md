@@ -1,6 +1,8 @@
 ---
 title: Pay To User
 hide_title: true
+id: version-1.0-api_p2p
+original_id: api_p2p
 ---
 
 ## Creating a Pay To User Offer

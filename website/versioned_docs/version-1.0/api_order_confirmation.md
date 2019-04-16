@@ -1,6 +1,8 @@
 ---
 title: Order Confirmation
 hide_title: true
+id: version-1.0-api_order_confirmation
+original_id: api_order_confirmation
 ---
 
 ## Requesting an Order Confirmation

@@ -1,6 +1,8 @@
 ---
 title: Native Spend
 hide_title: true
+id: version-1.0-api_native_spend
+original_id: api_native_spend
 ---
 
 ## Creating a Custom Spend Offer

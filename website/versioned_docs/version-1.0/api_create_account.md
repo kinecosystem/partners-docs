@@ -1,6 +1,8 @@
 ---
 title: Create Account
 hide_title: true
+id: version-1.0-api_create_account
+original_id: api_create_account
 ---
 
 ## Creating a User’s Kin Account
