@@ -8,7 +8,7 @@ hide_title: true
 If your app presents Kin Spend and Earn offers to your users, then each user needs a Kin wallet and account in order to take advantage of those offers.
 
 > **NOTE:**  
-> Kin Ecosystem SDK must be initialized before any interaction with the SDK, in order to do that you should call `Kin.start(…)` first.
+> Kin Ecosystem SDK must be initialized before any interaction with the SDK, in order to do that you should call `Kin.initialize(…)` on Android or `Kin.shared.start(…)` on iOS first.
 
 #### Login
 *To create or access a user’s Kin account:*
