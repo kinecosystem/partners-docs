@@ -17,13 +17,6 @@ There are 3 ways you can retrieve the user’s balance:
 
 *To get the cached balance:*
 <!--DOCUSAURUS_CODE_TABS-->
-<!--iOS-->
-> **NOTE:**  
-> This value may be nil if no known balance is present (for example, no account is associated yet)
-
-```swift
-Kin.shared.lastKnownBalance
-```
 <!--Android-->
 > **NOTE:**  
 > If no account was found for the user, you will receive a balance of 0 for that user.
@@ -35,22 +28,19 @@ try {
         e.printStackTrace();
 }
 ```
+<!--iOS-->
+> **NOTE:**  
+> This value may be nil if no known balance is present (for example, no account is associated yet)
+
+```swift
+Kin.shared.lastKnownBalance
+```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 *To get the balance from the Kin Server (from the blockchain)*
 
 Call get balance and implement the 2 response callback functions.
 <!--DOCUSAURUS_CODE_TABS-->
-<!--iOS-->
-```swift
-Kin.shared.balance() { balance, error in
-    if let b = balance {
-        print("balance is \(b.amount)")
-    } else if let e = error {
-        print("error getting balance: \(e.localizedDescription)")
-    }
-}
-```
 <!--Android-->
 ```java
 Kin.getBalance(new KinCallback<Balance>() {
@@ -65,23 +55,22 @@ Kin.getBalance(new KinCallback<Balance>() {
     }
 });
 ```
+<!--iOS-->
+```swift
+Kin.shared.balance() { balance, error in
+    if let b = balance {
+        print("balance is \(b.amount)")
+    } else if let e = error {
+        print("error getting balance: \(e.localizedDescription)")
+    }
+}
+```
 <!--END_DOCUSAURUS_CODE_TABS-->
 (See [BlockchainException](api_common_errors.md#blockchainException--Represents-an-error-originated-with-kin-blockchain-error-code-might-be) and [ServiceException](api_common_errors.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.)
 
 *To listen continuously for balance updates:*
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--iOS-->
-```swift
-var balanceObserverId: String? = nil
-do {
-    balanceObserverId = try Kin.shared.addBalanceObserver { balance in
-        print("balance: \(balance.amount)")
-    }
-} catch {
-    print("Error setting balance observer: \(error)")
-}
-```
 <!--Android-->
 Create an `Observer` object and implements its `onChanged()` function.
 ```java
@@ -100,6 +89,17 @@ catch (TaskFailedException e) {
     e.printStackTrace();
 }
 ```
+<!--iOS-->
+```swift
+var balanceObserverId: String? = nil
+do {
+    balanceObserverId = try Kin.shared.addBalanceObserver { balance in
+        print("balance: \(balance.amount)")
+    }
+} catch {
+    print("Error setting balance observer: \(error)")
+}
+```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 > **NOTES:**  
@@ -109,12 +109,6 @@ catch (TaskFailedException e) {
 When you're done listening to balance changes, remove the observer:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--iOS-->
-```swift
-if let observerId = balanceObserverId {
-    Kin.shared.removeBalanceObserver(observerId)
-}
-```
 <!--Android-->
 ```java
 // Remove the balance observer
@@ -122,6 +116,12 @@ try {
     Kin.removeBalanceObserver(balanceObserver);
 } catch (TaskFailedException e) {
     e.printStackTrace();
+}
+```
+<!--iOS-->
+```swift
+if let observerId = balanceObserverId {
+    Kin.shared.removeBalanceObserver(observerId)
 }
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->

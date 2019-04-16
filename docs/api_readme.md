@@ -26,20 +26,17 @@ repositories {
 ```groovy
 dependencies {
 	...
-	implementation 'com.github.kinfoundation.kin-ecosystem-android-sdk:sdk:0.8.1'
+	implementation 'com.github.kinfoundation.kin-ecosystem-android-sdk:sdk:1.0.1'
 }
 ```
 
 > **NOTES:**   
-> * The kin-ecosystem-android-sdk arr is tested on Android OS versions 4.4 (API level 19) and above.
-> * Some functionality such as observing balance updates will not be supported on lower OS versions.
+> * The `kin-ecosystem-android-sdk` aar is tested on Android OS versions 4.4 (API level 19) and above.
+> * Some functionality such as observing(SSE) balance updates will not be supported on lower OS versions.
 > * If your app supports lower OS versions (minSdkVersion < 19) we recommend to only enable Kin integration for users with version 4.4 and above.  
 
 <!--iOS-->
-The fastest way to get started with the sdk is with cocoapods (>= 1.4.0).
-```
-pod 'KinEcosystem', '0.8.1'
-```
+*Not Available Yet*
 
 > **NOTE:**  
 > For apps using swift 3.2: the pod installation will change your project's swift version target to 4.0.

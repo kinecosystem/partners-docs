@@ -6,6 +6,7 @@ original_id: api_launch_experience
 ---
 
 ## Launching a Specific Experience in KinEcosystem
+> For best practice: do not allow the user to double click on the entry point, as it will open the experience twice.
 
 #### Launch Kin Marketplace
 Optionally, your app can launch the Kin Marketplace offer wall. It displays Earn and Spend offers, which can be added to it by your app or by the Kin Ecosystem Server. When a user selects one of these offers, the Kin Marketplace notifies the app that created the offer. The app can then launch the Earn or Spend activity for the user to complete.
