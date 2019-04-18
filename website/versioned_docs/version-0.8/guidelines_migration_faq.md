@@ -44,6 +44,13 @@ The server is aware of a wallet’s status by checking the blockchain.
 #### What happens to the user's transaction history?
 The marketplace transaction history is kept. If you've been using the paymentConfirmation to double check the existence of a transaction on the blockchain, you will have to start checking on the new blockchain. Old transactions will not be transferred between blockchains, making all users accounts on the blockchain seem new and without history.
 
+####  Is there a way we can flip to switch manually on a couple test accounts to validate everything is working post migration ourselves? on either beta or production?
+You can’t change the version for specific users. Only for the whole app. We encourage you to test on beta using the endpoint documented here: https://partners.kinecosystem.com/docs/guidelines_migration.html
+You can switch back a forth on beta, but once a wallet has been migrated to KIN3 it is burnt, meeting it won’t work on kin2 anymore. You will have to reset the wallet after migrating back.
+
+#### If the migration enabled sdk will migrate _all_ wallets on the device, or only the wallet for the current active account. i.e. if 2 users have logged into kik, both of their wallet keypairs will be stored...if user B is logged in during migration will user A's also be migrated at that time? or would user A have to also log in to trigger their own migration?
+Each wallet is migrated separately. When a kin.init is called it will trigger the migration of the currently held wallet. The migration will also trigger on recovering a backed up wallet. As mentioned previously, if the sdk is already initialized when migration starts, the first api cal will trigger the migration.
+
 ## Issues and Errors
 
 #### Will launching a new app using the platform SDK before the migration cause any issues?
