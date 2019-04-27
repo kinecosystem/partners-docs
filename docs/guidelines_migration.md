@@ -86,7 +86,7 @@ Please note that once an account has been migrated to the new blockchain, it can
 On the `Beta` environment, you can use the following POST HTTP request to change your application migration flag:
 
 ```bash
-curl -XPOST https://api.kinecosystemtest.com/v2/applications/<your app_id>/blockchain_version -H "Content-type: Application/json" -d '{"blockchain_version": "<desired blockchain vesion>"}'
+curl -XPUT https://api.kinecosystembeta.com/v2/applications/<your app_id>/blockchain_version -H "Content-type: Application/json" -d '{"blockchain_version": "<desired blockchain vesion>"}'
 ```
 
 Where `<desired blockchain vesion>` can have a value of "2" or "3" as a string. 
@@ -96,5 +96,5 @@ Where `<desired blockchain vesion>` can have a value of "2" or "3" as a string.
 For example, the following HTTP request sets the flag to pre-migration for app_id "ABC1":
 
 ```bash
-curl -XPOST https://api.kinecosystemtest.com/v2/applications/ABC1/blockchain_version -H "Content-type: Application/json" -d '{"blockchain_version": "2"}'
+curl -XPUT https://api.kinecosystembeta.com/v2/applications/ABC1/blockchain_version -H "Content-type: Application/json" -d '{"blockchain_version": "2"}'
 ```
