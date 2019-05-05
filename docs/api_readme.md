@@ -26,7 +26,7 @@ repositories {
 ```groovy
 dependencies {
 	...
-	implementation 'com.github.kinfoundation.kin-ecosystem-android-sdk:sdk:1.0.1'
+	implementation 'com.github.kinfoundation.kin-ecosystem-android-sdk:sdk:1.0.2'
 }
 ```
 
