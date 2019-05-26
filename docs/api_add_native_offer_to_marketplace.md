@@ -124,9 +124,8 @@ try {
     } else {
         // Could not add the list to Kin Marketplace
     }
-} catch (ClientException e) {
-    showSnackbar("ClientException  " + e.getMessage(), true);
-    e.printStackTrace();
+} catch (ClientException error) {
+    ...
 }
 ```
 <!--iOS-->
