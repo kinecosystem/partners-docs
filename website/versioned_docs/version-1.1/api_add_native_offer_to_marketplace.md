@@ -1,6 +1,8 @@
 ---
 title: Add Native Offer to Wall
 hide_title: true
+id: version-1.1-api_add_native_offer_to_marketplace
+original_id: api_add_native_offer_to_marketplace
 ---
 ## Add and Remove Native Offers from Offer Wall
 ### Adding a Custom Earn or Spend Offers to the Kin Marketplace Offer Wall ###
