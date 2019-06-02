@@ -9,7 +9,7 @@ In the normal flow of a transaction, you will receive an order confirmation from
 
 #### To request an order confirmation:
 
-Call the order confirmation function, while passing the order’s ID and implementing the appropriate callback functions. (See [ServiceException](api_common_errors.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.)
+Call the order confirmation function, while passing the offer’s ID and implementing the appropriate callback functions. (See [ServiceException](api_common_errors.md#serviceexception---represents-an-error-communicating-with-kin-server-error-code-might-be) for possible errors.)
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Android-->
