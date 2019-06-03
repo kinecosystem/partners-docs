@@ -1,6 +1,6 @@
 ---
-title: Onboarding
-hide_title: true
+id: version-0.7-guidelines_onboarding
+original_id: guidelines_onboarding
 ---
 
 # Partner Onboarding
