@@ -21,7 +21,7 @@ The `next` version is stored under `/docs` and the current version is `website/v
 In cases where the fix is pretty big and applying it twice is tedious, you could delete the current version completely by deleting `website/versioned_docs/version-x.x` and removing it from `website/versions.json`. Then you can make the changes under `/docs` and create a new version with the same version number (see [Adding a Version](#add_version))
 
 ### 2. Deploying a New SDK Version
-In this case we will just update the `/docs` dir with our new API methods and docs. Once down we will create a new version, as seen in the following section.
+In this case we will just update the `/docs` dir with our new API methods and docs. Once done we will create a new version, as seen in the following section.
 
 ## <a name="add_version">Adding a Version</a>
 In order to add a new version run:
