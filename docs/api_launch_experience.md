@@ -135,7 +135,7 @@ other users by gifting Kin.
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Android-->
 * Step 1 - Implement `JwtProvider`</br>
-This object will be provided on the following step, in order to create a jwt for p2p offer after the user clicks on a gift option. `JwtProvider` methods are beign used in a worker thread so it's safe to do a synchronous network call on the implementation side.
+This object will be provided on the following step, in order to create a jwt for p2p offer after the user clicks on a gift option. `JwtProvider` methods are begin used in a worker thread so it's safe to do a synchronous network call on the implementation side.
 
 * Step 2 - Create `GiftingManager`</br>
 You should provide your Implementation of `JwtProvider` here. `Kin.login(...)` should be called prior to this API call.
@@ -148,8 +148,8 @@ try {
 }
 ```
 
-* Step 3 - Add Gifting Order Confiramtion Observer</br>
-Once you add your observer you will get a `Subscription` so you can easyly remove your observer when you don't need it anymore.
+* Step 3 - Add Gifting Order Confirmation Observer</br>
+Once you add your observer you will get a `Subscription` so you can easily remove your observer when you don't need it anymore.
 ```java
 giftingOrderConfirmation = getGiftingManager().addOrderConfirmationObserver(
             new Observer<OrderConfirmation>() {
@@ -157,7 +157,7 @@ giftingOrderConfirmation = getGiftingManager().addOrderConfirmationObserver(
                 public void onChanged(OrderConfirmation confirmation) {
                     switch(confirmation.getStatus()) {
                         case COMPLETED:
-                            // Giting succeed
+                            // Gifting succeed
                             Log.d(TAG, "Jwt confirmation: \n" + confirmation.getJwtConfirmation());
                             break;
                         case FAILED:
@@ -182,5 +182,63 @@ getGiftingManager().showDialog(context, recipientId);
 ```
 
 <!--iOS-->
-*Not Available Yet*
+* Step 1 - Import</br>
+Add the appreciation module to your CocoPods Podfile.
+
+```ruby
+pod 'KinAppreciationModuleOptionsMenu'
+```
+
+* Step 2 - Create the View Controller</br>
+The initializer requires two parameters.
+- `balance`: The current users balance of Kin.
+- `theme`: The theme to be used with the module.
+
+The theme options are `.light` and `.dark`.
+
+```swift
+let appreciationViewController = KinAppreciationViewController(balance: 100, theme: .light)
+```
+
+* Step 3 - Setup the Delegate</br>
+The delegate provides life cycle information for the appreciation module.
+
+```swift
+appreciationViewController.delegate = self
+```
+
+_Protocol Stubs_
+
+```swift
+extension SomeController: KinAppreciationViewControllerDelegate {
+    func kinAppreciationViewControllerDidPresent(_ viewController: KinAppreciationViewController) {
+
+    }
+
+    func kinAppreciationViewController(_ viewController: KinAppreciationViewController, didDismissWith reason: KinAppreciationCancelReason) {
+
+    }
+
+    func kinAppreciationViewController(_ viewController: KinAppreciationViewController, didSelect amount: Decimal) {
+        
+    }
+}
+```
+
+> The appreciation module does not send the payment. It is your responsibility to provide this functionality in the `didSelectAmount` function.
+
+* Step 4 - Present the View Controller</br>
+The appreciation module inherits from `UIViewController`, so you will present it like any other view controller.
+
+```swift
+viewController.present(appreciationViewController, animated: true)
+```
+
+_Dismissing the View Controller_
+
+The appreciation module will automatically dismiss itself in the following ways.
+
+- Background Tap: Tapping outside of the appreciation view controller bounds.
+- Close Button: Tapping the close button in the appreciation view controller.
+- Select Amount: Tapping one of the gifting buttons in the appreciation view controller.
 <!--END_DOCUSAURUS_CODE_TABS-->
