@@ -1,7 +1,7 @@
 ---
 title: Launch Experience
 hide_title: true
-id: version-1.2.0-api_launch_experience
+id: version-1.2-api_launch_experience
 original_id: api_launch_experience
 ---
 

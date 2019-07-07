@@ -1,7 +1,7 @@
 ---
 title: Intro
 hide_title: true
-id: version-1.2.0-api_readme
+id: version-1.2-api_readme
 original_id: api_readme
 ---
 
