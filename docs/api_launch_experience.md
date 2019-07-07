@@ -182,61 +182,61 @@ getGiftingManager().showDialog(context, recipientId);
 ```
 
 <!--iOS-->
-* Step 1 - Import</br>
-Add the appreciation module to your CocoPods Podfile.
-
-```ruby
-pod 'KinAppreciationModuleOptionsMenu'
-```
-
-* Step 2 - Create the View Controller</br>
-The initializer requires two parameters.
-- `balance`: The current users balance of Kin.
-- `theme`: The theme to be used with the module.
-
-The theme options are `.light` and `.dark`.
+* Step 1 - Setup the Delegate</br>
+Set the delegate of the `giftingManager` and include the protocol stubs.
 
 ```swift
-let appreciationViewController = KinAppreciationViewController(balance: 100, theme: .light)
+Kin.giftingManager.delegate = self
 ```
 
-* Step 3 - Setup the Delegate</br>
-The delegate provides life cycle information for the appreciation module.
-
 ```swift
-appreciationViewController.delegate = self
-```
-
-_Protocol Stubs_
-
-```swift
-extension SomeController: KinAppreciationViewControllerDelegate {
-    func kinAppreciationViewControllerDidPresent(_ viewController: KinAppreciationViewController) {
+extension SomeController: GiftingManagerDelegate {
+    func giftingManagerDidPresent(_ giftingManager: GiftingManager) {
 
     }
 
-    func kinAppreciationViewController(_ viewController: KinAppreciationViewController, didDismissWith reason: KinAppreciationCancelReason) {
+    func giftingManagerDidCancel(_ giftingManager: GiftingManager) {
 
     }
 
-    func kinAppreciationViewController(_ viewController: KinAppreciationViewController, didSelect amount: Decimal) {
+    func giftingManagerNeedsJWT(_ giftingManager: GiftingManager, amount: Decimal) -> String? {
         
+    }
+
+    func giftingManager(_ giftingManager: GiftingManager, didCompleteWith jwtConfirmation: String) {
+
+    }
+
+    func giftingManager(_ giftingManager: GiftingManager, error: Error) {
+
     }
 }
 ```
 
-> The appreciation module does not send the payment. It is your responsibility to provide this functionality in the `didSelectAmount` function.
-
-* Step 4 - Present the View Controller</br>
-The appreciation module inherits from `UIViewController`, so you will present it like any other view controller.
+* Step 2 - Provide the JWT</br>
+Before the `GiftingManager` sends the payment, it will request the `JWT` string from its `delegate`.
 
 ```swift
-viewController.present(appreciationViewController, animated: true)
+func giftingManagerNeedsJWT(_ giftingManager: GiftingManager, amount: Decimal) -> String? {
+    // Return your JWT string
+    return buildJWT(with: amount)
+}
 ```
 
-_Dismissing the View Controller_
+> Returning `nil` will cause the `GiftingManager.delegate` to call `giftingManager(_:, error:)`.
 
-The appreciation module will automatically dismiss itself in the following ways.
+* Step 3 - Present the Module</br>
+When everything is ready, you can present the module from the `GiftingManager`.
+
+```swift
+Kin.giftingManager.present(in: someViewController)
+```
+
+> `Kin.login(...)` should be called prior to this API call.
+
+* Dismissing the Module
+
+The `GiftingManager` will automatically dismiss itself in the following ways.
 
 - Background Tap: Tapping outside of the appreciation view controller bounds.
 - Close Button: Tapping the close button in the appreciation view controller.
