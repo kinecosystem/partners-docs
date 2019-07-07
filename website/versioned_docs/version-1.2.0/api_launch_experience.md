@@ -1,6 +1,8 @@
 ---
 title: Launch Experience
 hide_title: true
+id: version-1.2.0-api_launch_experience
+original_id: api_launch_experience
 ---
 
 ## Launching a Specific Experience in KinEcosystem
